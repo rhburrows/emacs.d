@@ -6,4 +6,6 @@
 
 (display-time)
 
+(setq column-number-mode t)
+
 (setq ring-bell-function 'ignore)
