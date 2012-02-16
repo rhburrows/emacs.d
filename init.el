@@ -13,6 +13,7 @@
                       feature-mode
                       haskell-mode
                       magit
+                      markdown-mode
                       starter-kit
                       starter-kit-eshell
                       zenburn-theme)
@@ -23,14 +24,7 @@
     (package-install p)))
 
 (global-set-key "\M-s" 'tags-search)
-
-(setq woman-use-own-frame nil)
-(global-set-key "\C-cm" 'woman)
-
 (global-set-key "\C-cg" 'magit-status)
-(add-hook 'magit-mode-hook
-          '(lambda ()
-             (define-key magit-mode-map (kbd "C-c s") 'diff-goto-source)))
 
 (setq-default ispell-program-name "aspell")
 
