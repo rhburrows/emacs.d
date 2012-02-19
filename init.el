@@ -16,6 +16,7 @@
                       markdown-mode
                       starter-kit
                       starter-kit-eshell
+                      undo-tree
                       zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
