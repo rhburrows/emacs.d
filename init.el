@@ -12,6 +12,7 @@
 (defvar my-packages '(coffee-mode
                       feature-mode
                       haskell-mode
+                      lua-mode
                       magit
                       markdown-mode
                       starter-kit
