@@ -9,7 +9,9 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(coffee-mode
+(defvar my-packages '(clojure-mode
+                      clojure-test-mode
+                      coffee-mode
                       feature-mode
                       haskell-mode
                       lua-mode
