@@ -14,6 +14,7 @@
                       coffee-mode
                       feature-mode
                       haskell-mode
+                      haxe-mode
                       lua-mode
                       magit
                       markdown-mode
