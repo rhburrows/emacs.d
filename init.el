@@ -12,6 +12,7 @@
 (defvar my-packages '(clojure-mode
                       clojure-test-mode
                       coffee-mode
+                      csharp-mode
                       feature-mode
                       haskell-mode
                       haxe-mode
