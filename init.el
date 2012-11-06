@@ -10,12 +10,11 @@
   (package-refresh-contents))
 
 (defvar my-packages '(clojure-mode
-                      clojure-test-mode
                       coffee-mode
                       csharp-mode
                       feature-mode
+                      haml-mode
                       haskell-mode
-                      haxe-mode
                       lua-mode
                       magit
                       markdown-mode
