@@ -11,5 +11,4 @@
 (setq ring-bell-function 'ignore)
 
 (add-hook 'org-mode-hook 'org-table-stripes-enable)
-(add-hook 'org-mode-hook 'org-bullets-mode)
 (add-hook 'dired-mode-hook 'stripe-listify-buffer)
