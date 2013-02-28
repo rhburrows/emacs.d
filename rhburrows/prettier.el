@@ -9,6 +9,3 @@
 (setq column-number-mode t)
 
 (setq ring-bell-function 'ignore)
-
-(add-hook 'org-mode-hook 'org-table-stripes-enable)
-(add-hook 'dired-mode-hook 'stripe-listify-buffer)

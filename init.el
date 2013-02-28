@@ -15,11 +15,14 @@
                       feature-mode
                       haml-mode
                       haskell-mode
+                      gist
                       lua-mode
                       magit
                       markdown-mode
                       starter-kit
                       starter-kit-eshell
+                      starter-kit-lisp
+                      starter-kit-ruby
                       undo-tree
                       zenburn-theme)
   "A list of packages to ensure are installed at launch.")
@@ -31,13 +34,6 @@
 (global-set-key "\M-s" 'tags-search)
 (global-set-key "\C-cg" 'magit-status)
 
-(setq-default ispell-program-name "aspell")
-
-(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Isolate" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 

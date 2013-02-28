@@ -18,24 +18,6 @@
            (set-window-start w2 s1)))))
 (global-set-key (kbd "\C-c s") 'swap-windows)
 
-(defun find-file-next-frame(filename)
-  "If there is a second frame, run find-file there"
-  (cond ((not multiple-frames)
-         (message "Only one frame is present."))
-        (t
-         (let ((f (next-frame)))
-           (select-frame f)
-           (x-focus-frame f)
-           (find-file filename)))))
-(global-set-key "\C-x5f" 'find-file-next-frame)
-
-(defun dired-find-file-next-frame ()
-  "In dired, visit this file or directory in another frame."
-  (interactive)
-  (find-file-next-frame (file-name-sans-versions (dired-get-filename) t)))
-(require 'dired)
-(define-key dired-mode-map "e" 'dired-find-file-other-frame)
-
 (defun backward-kill-word-or-kill-region (&optional arg)
   (interactive "p")
   (if (region-active-p)
