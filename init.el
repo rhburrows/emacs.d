@@ -19,6 +19,7 @@
                       lua-mode
                       magit
                       markdown-mode
+                      rspec-mode
                       starter-kit
                       starter-kit-eshell
                       starter-kit-lisp
