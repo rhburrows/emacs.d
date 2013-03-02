@@ -19,6 +19,7 @@
                       lua-mode
                       magit
                       markdown-mode
+                      org2blog
                       rspec-mode
                       starter-kit
                       starter-kit-eshell
