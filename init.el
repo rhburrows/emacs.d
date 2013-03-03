@@ -12,6 +12,7 @@
 (defvar my-packages '(clojure-mode
                       coffee-mode
                       csharp-mode
+                      elisp-slime-nav
                       feature-mode
                       haml-mode
                       haskell-mode
