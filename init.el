@@ -20,6 +20,7 @@
                       lua-mode
                       magit
                       markdown-mode
+                      nrepl
                       org2blog
                       rspec-mode
                       starter-kit
