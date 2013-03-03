@@ -24,3 +24,14 @@
       (kill-region (region-beginning) (region-end))
     (backward-kill-word arg)))
 (global-set-key "\C-w" 'backward-kill-word-or-kill-region)
+
+;; Taken from whattheemacsd.com
+(defun cleanup-buffer ()
+  "Perform a bunch of safe operations on the whitespace content of a buffer.
+Does not indent buffer, because that might be bad."
+  (interactive)
+  (untabify (point-min) (point-max))
+  (delete-trailing-whitespace)
+  (set-buffer-file-coding-system 'utf-8)
+  (indent-region (point-min) (point-max)))
+(global-set-key "\C-cn" 'cleanup-buffer)
