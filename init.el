@@ -36,6 +36,7 @@
 
 (global-set-key "\M-s" 'tags-search)
 (global-set-key "\C-cg" 'magit-status)
+(global-set-key "\C-xg" 'webjump)
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
