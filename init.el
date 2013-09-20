@@ -12,7 +12,6 @@
 (defvar my-packages '(clojure-mode
                       coffee-mode
                       csharp-mode
-                      elisp-slime-nav
                       feature-mode
                       haml-mode
                       haskell-mode
@@ -22,6 +21,7 @@
                       markdown-mode
                       nrepl
                       org2blog
+                      php-mode
                       rspec-mode
                       starter-kit
                       starter-kit-eshell
@@ -41,5 +41,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+
+(setq ffap-machine-p-known 'reject)
 
 (eshell)
