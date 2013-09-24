@@ -23,6 +23,7 @@
                       org2blog
                       php-mode
                       rspec-mode
+                      scala-mode
                       starter-kit
                       starter-kit-eshell
                       starter-kit-lisp
