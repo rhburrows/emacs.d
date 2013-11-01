@@ -9,7 +9,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(clojure-mode
+(defvar my-packages '(auto-complete
+                      clojure-mode
                       coffee-mode
                       csharp-mode
                       feature-mode
@@ -24,6 +25,7 @@
                       php-mode
                       rspec-mode
                       scala-mode
+                      smartparens
                       starter-kit
                       starter-kit-eshell
                       starter-kit-lisp
@@ -44,5 +46,14 @@
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 
 (setq ffap-machine-p-known 'reject)
+
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'ruby-mode)
+
+(require 'smartparens-ruby)
+(smartparens-global-mode)
+(show-smartparens-global-mode t)
 
 (eshell)
