@@ -10,26 +10,12 @@
   (package-refresh-contents))
 
 (defvar my-packages '(auto-complete
-                      clojure-mode
-                      coffee-mode
-                      csharp-mode
                       feature-mode
                       haml-mode
-                      haskell-mode
                       gist
-                      lua-mode
                       magit
                       markdown-mode
-                      nrepl
-                      org2blog
-                      php-mode
                       rspec-mode
-                      scala-mode
-                      smartparens
-                      starter-kit
-                      starter-kit-eshell
-                      starter-kit-lisp
-                      starter-kit-ruby
                       undo-tree)
   "A list of packages to ensure are installed at launch.")
 
@@ -37,9 +23,11 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(mapc 'load (directory-files (concat user-emacs-directory user-login-name)
+                             t "^[^#].*el$"))
+
 (global-set-key "\M-s" 'tags-search)
 (global-set-key "\C-cg" 'magit-status)
-(global-set-key "\C-xg" 'webjump)
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))

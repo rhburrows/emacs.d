@@ -1,3 +1,5 @@
+(setq inhibit-splash-screen t)
+
 (require 'hl-line)
 (set-face-background 'hl-line "white smoke")
 
