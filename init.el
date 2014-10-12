@@ -30,8 +30,7 @@
                       starter-kit-eshell
                       starter-kit-lisp
                       starter-kit-ruby
-                      undo-tree
-                      zenburn-theme)
+                      undo-tree)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -51,9 +50,5 @@
 (ac-config-default)
 (setq ac-ignore-case nil)
 (add-to-list 'ac-modes 'ruby-mode)
-
-(require 'smartparens-ruby)
-(smartparens-global-mode)
-(show-smartparens-global-mode t)
 
 (eshell)
