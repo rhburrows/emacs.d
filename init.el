@@ -10,13 +10,17 @@
   (package-refresh-contents))
 
 (defvar my-packages '(auto-complete
+                      coffee-mode
                       feature-mode
                       haml-mode
+                      handlebars-mode
                       gist
                       magit
                       markdown-mode
                       rspec-mode
-                      undo-tree)
+                      sass-mode
+                      undo-tree
+                      yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
