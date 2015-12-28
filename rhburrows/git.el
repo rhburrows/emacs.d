@@ -10,3 +10,4 @@
   '(define-key magit-status-mode-map (kbd "C-c C-a") 'magit-just-amend))
 
 (global-set-key (kbd "\C-x g") 'vc-git-grep)
+(global-set-key (kbd "\C-c b") 'magit-blame)

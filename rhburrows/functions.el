@@ -35,3 +35,5 @@ Does not indent buffer, because that might be bad."
   (set-buffer-file-coding-system 'utf-8)
   (indent-region (point-min) (point-max)))
 (global-set-key "\C-cn" 'cleanup-buffer)
+
+(global-set-key "\C-ci" 'dash-at-point)

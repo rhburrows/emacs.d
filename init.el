@@ -3,6 +3,8 @@
 
 (require 'package)
 (add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
@@ -32,6 +34,10 @@
 
 (global-set-key "\M-s" 'tags-search)
 (global-set-key "\C-cg" 'magit-status)
+(global-set-key "\C-cf" 'ido-find-file)
+(global-set-key "\C-xb" 'ido-switch-buffer)
+
+(setq-default indent-tabs-mode nil)
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
