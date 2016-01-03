@@ -13,14 +13,17 @@
 
 (defvar my-packages '(auto-complete
                       coffee-mode
+                      dash-at-point
                       feature-mode
                       haml-mode
                       handlebars-mode
                       gist
+                      jsx-mode
                       magit
                       markdown-mode
                       rspec-mode
                       sass-mode
+                      scss-mode
                       undo-tree
                       yaml-mode)
   "A list of packages to ensure are installed at launch.")
