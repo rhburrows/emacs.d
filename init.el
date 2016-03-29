@@ -16,10 +16,11 @@
                       dash-at-point
                       elm-mode
                       feature-mode
+                      gist
                       haml-mode
                       handlebars-mode
-                      gist
                       jsx-mode
+                      js2-mode
                       magit
                       markdown-mode
                       rspec-mode
