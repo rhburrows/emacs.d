@@ -14,6 +14,7 @@
 (defvar my-packages '(auto-complete
                       coffee-mode
                       dash-at-point
+                      elm-mode
                       feature-mode
                       haml-mode
                       handlebars-mode
