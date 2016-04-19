@@ -23,6 +23,7 @@
                       js2-mode
                       magit
                       markdown-mode
+                      org-bullets
                       rspec-mode
                       sass-mode
                       scss-mode
