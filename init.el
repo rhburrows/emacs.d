@@ -13,6 +13,10 @@
 
 (defvar my-packages '(auto-complete
                       coffee-mode
+                      color-theme
+                      color-theme-solarized
+                      color-theme-zenburn
+                      company
                       dash-at-point
                       elm-mode
                       feature-mode

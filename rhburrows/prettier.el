@@ -12,3 +12,6 @@
 
 (setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
+
+(require 'color-theme)
+(color-theme-solarized)
