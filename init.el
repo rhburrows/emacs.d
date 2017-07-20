@@ -19,5 +19,6 @@
 (load-user-file "config/packages.el")
 (load-user-file "config/files.el")
 (load-user-file "config/theme.el")
+(load-user-file "config/keys.el")
 
 
