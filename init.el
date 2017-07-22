@@ -21,4 +21,4 @@
 (load-user-file "config/theme.el")
 (load-user-file "config/keys.el")
 
-
+(load-user-file "languages/javascript.el")
