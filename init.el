@@ -16,9 +16,13 @@
 (setq custom-file (expand-file-name "custom.el" user-init-dir))
 (load custom-file)
 
+
 (load-user-file "config/packages.el")
 (load-user-file "config/files.el")
 (load-user-file "config/theme.el")
 (load-user-file "config/keys.el")
 
 (load-user-file "languages/javascript.el")
+
+(exec-path-from-shell-initialize)
+(add-hook 'after-init-hook 'global-company-mode)
