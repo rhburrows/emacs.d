@@ -26,3 +26,10 @@
 
 (exec-path-from-shell-initialize)
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; flycheck setup
+(global-flycheck-mode)
+(setq-default flycheck-disabled-checkers
+	      (append flycheck-disabled-checkers
+		      '(javascript-jshint)))
+(flycheck-add-mode 'javascript-eslint 'web-mode)

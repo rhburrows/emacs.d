@@ -10,5 +10,11 @@
 
 ;; Set up flow
 (add-hook 'web-mode-hook 'flow-minor-mode)
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "js")
+              ;; enable flycheck
+              (flycheck-select-checker 'javascript-eslint))))
+
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-flow))

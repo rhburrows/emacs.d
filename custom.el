@@ -8,7 +8,7 @@
     ("a49760e39bd7d7876c94ee4bf483760e064002830a63e24c2842a536c6a52756" default)))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell company company-flow flow-minor-mode web-mode magit monokai-theme))))
+    (flycheck-flow flycheck exec-path-from-shell company company-flow flow-minor-mode web-mode magit monokai-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
