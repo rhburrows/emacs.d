@@ -55,4 +55,5 @@
 	  (compile (concat react-native " " cmd)))
       (message "This doesn't look like a react-native project"))))
 
-(define-key web-mode-map (kbd "C-c r") 'rhb/react-native-run)
+(with-eval-after-load 'web-mode
+  (define-key web-mode-map (kbd "C-c r") 'rhb/react-native-run))
