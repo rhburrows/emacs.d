@@ -32,11 +32,13 @@
 (add-hook 'flycheck-mode-hook #'rhb/use-eslint-from-node-modules)
 (add-hook 'flycheck-mode-hook #'rhb/use-flow-from-node-modules)
 
+(load-vendor-file "flycheck-flow.el")
 (require 'flycheck-flow)
+
 (customize-set-variable 'flycheck-javascript-flow-args '("--respect-pragma"))
-(flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 (flycheck-add-mode 'javascript-flow 'web-mode)
+(flycheck-add-next-checker 'javascript-eslint 'javascript-flow)
 
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-flow))
