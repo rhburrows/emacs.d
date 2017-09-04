@@ -38,7 +38,7 @@
 (customize-set-variable 'flycheck-javascript-flow-args '("--respect-pragma"))
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 (flycheck-add-mode 'javascript-flow 'web-mode)
-(flycheck-add-next-checker 'javascript-eslint 'javascript-flow)
+(flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
 
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-flow))
