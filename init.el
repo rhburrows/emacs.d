@@ -37,3 +37,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (global-flycheck-mode)
+(projectile-mode)
+
+;; Start an emacs server
+(server-start)
