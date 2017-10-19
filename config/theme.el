@@ -5,7 +5,9 @@
 (scroll-bar-mode -1)
 
 (setq column-number-mode t)
+(display-time-mode 1)
 
 (load-theme 'monokai t)
 
 (set-default-font "Inconsolata 16")
+
