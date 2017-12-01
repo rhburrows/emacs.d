@@ -39,5 +39,8 @@
 (global-flycheck-mode)
 (projectile-mode)
 
+;; Make sure to load after other packages it integrates with
+(load-user-file "config/helm.el")
+
 ;; Start an emacs server
 (server-start)
