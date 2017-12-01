@@ -1,4 +1,5 @@
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c '") 'org-cycle-agenda-files)
 
 (defun swap-windows ()
   "If you have 2 windows, it swaps them."
