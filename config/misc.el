@@ -23,3 +23,10 @@
 (global-set-key (kbd "C-c s") 'swap-windows)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (read-only-mode nil)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (read-only-mode))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
