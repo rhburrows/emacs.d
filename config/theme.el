@@ -8,4 +8,4 @@
 (display-time-mode 1)
 
 (set-default-font "Inconsolata 16")
-
+(load-theme 'kaolin-dark)
