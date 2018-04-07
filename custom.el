@@ -13,7 +13,8 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (all-the-icons all-the-icons-dired doom-themes helm-mt multi-term kaolin-themes helm-projectile helm helm-ag helm-company swift-mode php-mode markdown-mode ag projectile flycheck-flow flycheck exec-path-from-shell company company-flow flow-minor-mode web-mode magit)))
+    (spaceline spaceline-all-the-icons all-the-icons all-the-icons-dired doom-themes helm-mt multi-term kaolin-themes helm-projectile helm helm-ag helm-company swift-mode php-mode markdown-mode ag projectile flycheck-flow flycheck exec-path-from-shell company company-flow flow-minor-mode web-mode magit)))
+ '(powerline-text-scale-factor 1.2)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)

@@ -15,3 +15,6 @@
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+(spaceline-helm-mode)
+(spaceline-all-the-icons-theme)
