@@ -42,20 +42,3 @@
 
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-flow))
-
-;; react-native stuff
-(defun rhb/react-native-run (cmd)
-  (interactive "scommand: ")
-  (let* ((root (locate-dominating-file
-		(or (buffer-file-name) default-directory)
-		"node_modules"))
-	 (react-native (and root
-			    (expand-file-name "node_modules/.bin/react-native"
-					      root))))
-    (if (and react-native (file-executable-p react-native))
-	(let ((default-directory root))
-	  (compile (concat react-native " " cmd)))
-      (message "This doesn't look like a react-native project"))))
-
-(with-eval-after-load 'web-mode
-  (define-key web-mode-map (kbd "C-c r") 'rhb/react-native-run))
