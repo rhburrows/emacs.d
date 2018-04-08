@@ -29,6 +29,7 @@
 (load-user-file "config/editor.el")
 (load-user-file "config/packages.el")
 (load-user-file "config/files.el")
+(load-user-file "config/org.el")
 (load-user-file "config/theme.el")
 
 (load-user-file "languages/javascript.el")
