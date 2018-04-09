@@ -9,15 +9,15 @@
 
 (setq org-M-RET-may-split-line nil)
 
-(setq org-default-notes-file "~/Dropbox/org/tasks.org")
 (setq org-agenda-files
-      (list
-       "~/Dropbox/org/tasks.org"
-       "~/Dropbox/org/notes.org"))
+      (list "~/Dropbox/org/tasks.org"))
 
 (setq org-capture-templates
-      '(("t" "Task" entry (file+headline "~/Dropbox/org/tasks.org" "Inbox")
-         "* TODO %?" :prepend t)))
+      '(("t" "Task" entry (file "~/Dropbox/org/inbox.org")
+         "* TODO %?" :prepend t)
+        ("n" "Note" entry (file+headline "~/Dropbox/org/notes.org" "Misc Notes")
+         "** %?" :prepend t)
+        ))
 
 ;; Make sure we can refile tasks from the "Inbox" to projects
 (setq org-refile-targets '(("tasks.org" :level . 2)))
