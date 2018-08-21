@@ -25,3 +25,4 @@
 ;; org-journal setup
 (setq org-journal-dir "~/Dropbox/org/journal")
 (setq org-journal-file-format "%Y-%m-%d")
+(add-hook 'org-journal-mode-hook (lambda () (auto-fill-mode 1)))
