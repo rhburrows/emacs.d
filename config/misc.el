@@ -30,3 +30,11 @@
   (ansi-color-apply-on-region compilation-filter-start (point))
   (read-only-mode))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+(defun rhb-w3m-search (query)
+  (interactive "MSearch Google: ")
+  (let ((w3m-pop-up-windows t))
+    (if (one-window-p) (split-window))
+    (other-window 1)
+    (w3m-search "google" query)))
+(global-set-key (kbd "C-c g") 'rhb-w3m-search)

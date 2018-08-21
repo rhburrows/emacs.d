@@ -32,6 +32,7 @@
 (load-user-file "config/org.el")
 (load-user-file "config/theme.el")
 
+(require 'flycheck)
 (load-user-file "languages/javascript.el")
 (load-user-file "languages/typescript.el")
 
@@ -42,7 +43,10 @@
 (projectile-mode)
 
 ;; Make sure to load after other packages it integrates with
+(load-user-file "config/projectile.el")
 (load-user-file "config/helm.el")
+
+(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 
 ;; Start an emacs server
 (server-start)
