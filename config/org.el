@@ -9,7 +9,7 @@
 
 (setq org-agenda-files
       (list
-;       "~/Dropbox/org/inbox.org"
+       "~/Dropbox/org/inbox.org"
        "~/Dropbox/org/personal.org"
        "~/Dropbox/org/projects.org"
        "~/Dropbox/org/work.org"))
