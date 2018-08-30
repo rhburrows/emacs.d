@@ -38,3 +38,15 @@
     (other-window 1)
     (w3m-search "google" query)))
 (global-set-key (kbd "C-c g") 'rhb-w3m-search)
+
+;; Pianobar
+(defun rhb-pianobar-play-start-pause-dwim ()
+  (interactive)
+  (if (not (fboundp 'pianobar-play-or-pause))
+      (pianobar)
+    (pianobar-play-or-pause)))
+
+(setq pianobar-username "rhburrows@gmail.com")
+(setq pianobar-station "0")
+(global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
+(global-set-key (kbd "<f8>") 'pianobar-next-song)
