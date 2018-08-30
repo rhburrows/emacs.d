@@ -42,7 +42,8 @@
 ;; Pianobar
 (defun rhb-pianobar-play-start-pause-dwim ()
   (interactive)
-  (if (not (fboundp 'pianobar-play-or-pause))
+  (if (or (not (fboundp 'pianobar-play-or-pause))
+          (not (comint-check-proc pianobar-buffer)))
       (pianobar)
     (pianobar-play-or-pause)))
 
