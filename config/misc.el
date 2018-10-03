@@ -50,6 +50,6 @@
     (pianobar-play-or-pause)))
 
 (setq pianobar-username "rhburrows@gmail.com")
-(setq pianobar-station "0")
+(setq pianobar-station "6")
 (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
 (global-set-key (kbd "<f8>") 'pianobar-next-song)
