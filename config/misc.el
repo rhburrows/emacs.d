@@ -2,6 +2,8 @@
 (if (string-equal system-type "darwin")
     (setq alert-default-style 'osx-notifier))
 
+(global-set-key (kbd "M-o") 'ace-window)
+
 (defun swap-windows ()
   "If you have 2 windows, it swaps them."
   (interactive)
