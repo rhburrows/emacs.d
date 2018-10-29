@@ -25,9 +25,9 @@
 (setq custom-file (expand-file-name "custom.el" user-init-dir))
 (load custom-file)
 
+(load-user-file "config/packages.el")
 (load-user-file "config/misc.el")
 (load-user-file "config/editor.el")
-(load-user-file "config/packages.el")
 (load-user-file "config/files.el")
 (load-user-file "config/org.el")
 (load-user-file "config/theme.el")
