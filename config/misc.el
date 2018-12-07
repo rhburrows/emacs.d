@@ -55,3 +55,8 @@
 (setq pianobar-station "6")
 (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
 (global-set-key (kbd "<f8>") 'pianobar-next-song)
+
+;; Allow the ace-window hook to keep working even in a terminal
+(add-hook 'term-mode-hook
+  (lambda () 
+    (define-key term-raw-map (kbd "M-o") 'ace-window)))

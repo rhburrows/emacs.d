@@ -7,3 +7,4 @@
 (helm-mode 1)
 
 (helm-projectile-on)
+(helm-mt/reroute-terminal-functions t)
