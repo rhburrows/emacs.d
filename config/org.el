@@ -44,8 +44,3 @@
           (lambda ()
             (local-set-key (kbd "C-c C-x j") 'rhb-jump-to-jira-task)
             (org-bullets-mode 1)))
-
-(require 'org-projectile)
-(setq org-projectile-projects-file "~/Dropbox/org/work.org")
-(push (org-projectile-project-todo-entry) org-capture-templates)
-(global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read)
