@@ -14,3 +14,6 @@
 (doom-themes-org-config)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 (set-default-font "Inconsolata 16")
+
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
