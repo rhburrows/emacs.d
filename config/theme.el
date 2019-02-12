@@ -7,11 +7,7 @@
 (setq column-number-mode t)
 (display-time-mode 1)
 
-(setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
-(load-theme 'doom-one t)
-(doom-themes-visual-bell-config)
-(doom-themes-org-config)
+(load-theme 'solarized-dark t)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 (set-default-font "Inconsolata 16")
 
