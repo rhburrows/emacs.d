@@ -22,6 +22,15 @@
            (set-window-start w2 s1))))
   (other-window 1))
 
+(defadvice split-window-right (after rebalance-windows activate)
+  (balance-windows))
+
+(defadvice split-window-below (after rebalance-windows activate)
+  (balance-windows))
+
+(defadvice delete-window (after rebalance-windows activate)
+  (balance-windows))
+
 (global-set-key (kbd "C-c s") 'swap-windows)
 
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -43,6 +52,14 @@
     (w3m-search "google" query)))
 (global-set-key (kbd "C-c g") 'rhb-w3m-search)
 
+(defun rhb-w3m-open-current-page-in-system-browser ()
+  (interactive)
+  (browse-url w3m-current-url))
+
+(add-hook 'w3m-mode-hook
+          (lambda ()
+            (define-key w3m-mode-map "f" 'rhb-w3m-open-current-page-in-system-browser)))
+
 ;; Pianobar
 (defun rhb-pianobar-play-start-pause-dwim ()
   (interactive)
@@ -56,7 +73,8 @@
 (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
 (global-set-key (kbd "<f8>") 'pianobar-next-song)
 
-;; Allow the ace-window hook to keep working even in a terminal
+;; Setup terminal keybindins
 (add-hook 'term-mode-hook
   (lambda () 
-    (define-key term-raw-map (kbd "M-o") 'ace-window)))
+    (define-key term-raw-map (kbd "M-o") 'ace-window)
+    (define-key term-raw-map (kbd "C-c C-l") 'comint-clear-buffer)))
