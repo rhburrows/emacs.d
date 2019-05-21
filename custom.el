@@ -14,7 +14,7 @@
  '(markdown-command "pandoc")
  '(package-selected-packages
    (quote
-    (solarized-theme paredit slime slime-company racket-mode ace-window groovy-mode company-php org-noter pdf-tools company-lua love-minor-mode lua-mode pianobar w3m org-journal vagrant-tramp puppet-mode kotlin-mode yaml-mode dumb-jump go-mode json-reformat emojify atomic-chrome restclient rainbow-mode tide editorconfig org-bullets all-the-icons all-the-icons-dired doom-themes helm-mt multi-term kaolin-themes helm-projectile helm helm-ag helm-company swift-mode php-mode markdown-mode ag projectile flycheck-flow flycheck exec-path-from-shell company company-flow flow-minor-mode web-mode magit)))
+    (graphviz-dot-mode solarized-theme paredit slime slime-company racket-mode ace-window groovy-mode company-php org-noter pdf-tools company-lua love-minor-mode lua-mode pianobar w3m org-journal vagrant-tramp puppet-mode kotlin-mode yaml-mode dumb-jump go-mode json-reformat emojify atomic-chrome restclient rainbow-mode tide editorconfig org-bullets all-the-icons all-the-icons-dired doom-themes helm-mt multi-term kaolin-themes helm-projectile helm helm-ag helm-company swift-mode php-mode markdown-mode ag projectile flycheck-flow flycheck exec-path-from-shell company company-flow flow-minor-mode web-mode magit)))
  '(powerline-text-scale-factor 1.2)
  '(ruby-indent-level 4)
  '(w3m-default-display-inline-images nil)
