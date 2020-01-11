@@ -6,8 +6,6 @@
          (php-mode))))
 
 (defun rhb-php-mode-hook ()
-  (setq indent-tabs-mode t)
-  (setq c-basic-offset 4)
   (local-set-key [f9] 'toggle-php-web-mode))
 
 (add-hook 'php-mode-hook 'rhb-php-mode-hook)
