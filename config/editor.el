@@ -5,3 +5,4 @@
 (setq whitespace-style '(face tabs empty trailing lines-tail))
 
 (global-undo-tree-mode)
+(editorconfig-mode 1)
