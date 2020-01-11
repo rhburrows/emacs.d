@@ -7,9 +7,9 @@
 (setq column-number-mode t)
 (display-time-mode 1)
 
-(load-theme 'solarized-dark t)
+(load-theme 'doom-tomorrow-day t)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-(set-default-font "Inconsolata 16")
+(set-default-font "Fira Code 14")
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
