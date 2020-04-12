@@ -50,5 +50,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 
+(setq frame-resize-pixelwise t)
+
 ;; Start an emacs server
 (server-start)

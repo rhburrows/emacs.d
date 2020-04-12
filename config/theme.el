@@ -7,7 +7,7 @@
 (setq column-number-mode t)
 (display-time-mode 1)
 
-(load-theme 'doom-tomorrow-day t)
+(load-theme 'doom-tomorrow-night t)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 (set-default-font "Fira Code 14")
 
