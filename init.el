@@ -26,8 +26,8 @@
 (load custom-file)
 
 (load-user-file "config/packages.el")
+(load-user-file "config/base.el")
 (load-user-file "config/theme.el")
-(load-user-file "config/misc.el")
 
 ;; Start an emacs server
 (server-start)

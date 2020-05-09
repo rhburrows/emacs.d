@@ -36,10 +36,26 @@
 ;; ivy setup
 (use-package ivy
   :ensure t
+  :bind
+  ("C-c C-r" . ivy-resume)
+  ("C-x C-b" . ivy-switch-buffer)
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
   (setq ivy-height 10))
+
+(use-package swiper
+  :ensure t
+  :bind
+  ("C-s" . swiper-isearch))
+
+(use-package counsel
+  :ensure t
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-x C-f" . counsel-find-file)
+  ("M-y" . counsel-yank-pop))
 
 ;; magit setup
 (use-package magit
@@ -87,7 +103,7 @@
 ;; (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
 ;; (global-set-key (kbd "<f8>") 'pianobar-next-song)
 
-;; Setup terminal keybindins
+;; Setup terminal keybindings
 ;; (add-hook 'term-mode-hook
 ;;   (lambda () 
 ;;     (define-key term-raw-map (kbd "M-o") 'ace-window)
