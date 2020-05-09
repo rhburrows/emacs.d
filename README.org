@@ -36,6 +36,9 @@ configuration. There's a few reasons I'm re-writing it:
   - multi-term (or other terminal setup)
   - hi-lock
   - all-the-icons & all-the-icons-dired
+  - rainbow-mode
+  - rainbow-delimeters
+  - whitespace
 
 * Description
 

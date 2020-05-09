@@ -33,7 +33,6 @@
 
 (global-set-key (kbd "C-c s") 'swap-windows)
 
-;; ivy setup
 (use-package ivy
   :ensure t
   :bind
@@ -57,7 +56,13 @@
   ("C-x C-f" . counsel-find-file)
   ("M-y" . counsel-yank-pop))
 
-;; magit setup
+;; Configure ag if its available on the system
+(use-package ag
+  :if (executable-find "ag")
+  :ensure t
+  :bind
+  ("C-c a" . counsel-ag))
+
 (use-package magit
   :ensure t
   :bind
