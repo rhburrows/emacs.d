@@ -103,7 +103,7 @@
 ;; (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
 ;; (global-set-key (kbd "<f8>") 'pianobar-next-song)
 
-;; Setup terminal keybindings
+;; Setup terminal keybindins
 ;; (add-hook 'term-mode-hook
 ;;   (lambda () 
 ;;     (define-key term-raw-map (kbd "M-o") 'ace-window)
