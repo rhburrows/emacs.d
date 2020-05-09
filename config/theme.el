@@ -9,7 +9,6 @@
 
 ; (load-theme 'doom-tomorrow-night t)
 ; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-(set-default-font "Fira Code 12" nil t)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
