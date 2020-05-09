@@ -1,8 +1,5 @@
 (require 'package)
 
-; Packages to automatically install
-(setq packagelist '())
-
 ; Add melpa to the package sources
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -13,4 +10,4 @@
 
 (unless package-archive-contents
   (package-refresh-contents))
-(package-install-selected-packages)
+; (package-install-selected-packages)

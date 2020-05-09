@@ -25,32 +25,5 @@
 (setq custom-file (expand-file-name "custom.el" user-init-dir))
 (load custom-file)
 
-(load-user-file "config/packages.el")
-(load-user-file "config/misc.el")
-(load-user-file "config/editor.el")
-(load-user-file "config/files.el")
-(load-user-file "config/org.el")
-(load-user-file "config/theme.el")
-
-(require 'flycheck)
-(load-user-file "languages/javascript.el")
-(load-user-file "languages/typescript.el")
-(load-user-file "languages/php.el")
-(load-user-file "languages/lisp.el")
-
-(exec-path-from-shell-initialize)
-(add-hook 'after-init-hook 'global-company-mode)
-
-(global-flycheck-mode)
-(projectile-mode)
-
-;; Make sure to load after other packages it integrates with
-(load-user-file "config/projectile.el")
-(load-user-file "config/helm.el")
-
-(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
-
-(setq frame-resize-pixelwise t)
-
 ;; Start an emacs server
 (server-start)

@@ -1,0 +1,47 @@
+* Ryan's Emacs config
+
+This branch is a currently in-process re-write of my emacs
+configuration. There's a few reasons I'm re-writing it:
+
+    - To remove packages I'm not actually using
+    - To explore new packages or newer replacements to ones I use
+    - To try and use lsp-mode to make many of my programming
+    environments more consistent
+    - For fun
+
+* Packages to check out and/or configure
+
+  - magit
+  - ivy
+  - swiper
+  - counsel
+  - ag
+  - treemacs
+  - projectile
+  - company
+  - lsp
+  - company-lsp
+  - lsp-ui
+  - aweshell
+  - treemacs-projectile
+  - treemacs-magit
+  - undo-tree
+  - org-mode
+  - markdown-mode
+  - flycheck
+  - ace-window
+  - pianobar
+  - undo-tree
+  - pdf-tools
+  - w3m
+  - json-reformat
+  - restclient
+  - editorconfig
+  - multi-term (or other terminal setup)
+  - hi-lock
+
+* Description
+
+  TODO: Fill out this description as you add and configure packages
+
+** External dependencies
