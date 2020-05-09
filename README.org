@@ -12,7 +12,6 @@ configuration. There's a few reasons I'm re-writing it:
 * Packages to check out and/or configure
 
   - magit
-  - ivy
   - swiper
   - counsel
   - ag
@@ -39,6 +38,7 @@ configuration. There's a few reasons I'm re-writing it:
   - editorconfig
   - multi-term (or other terminal setup)
   - hi-lock
+  - all-the-icons & all-the-icons-dired
 
 * Description
 

@@ -25,5 +25,9 @@
 (setq custom-file (expand-file-name "custom.el" user-init-dir))
 (load custom-file)
 
+(load-user-file "config/packages.el")
+(load-user-file "config/theme.el")
+(load-user-file "config/ivy.el")
+
 ;; Start an emacs server
 (server-start)
