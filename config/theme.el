@@ -9,6 +9,7 @@
 
 ; (load-theme 'doom-tomorrow-night t)
 ; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+; TODO: Not working now :(
 (set-default-font "Fira Code 12")
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
