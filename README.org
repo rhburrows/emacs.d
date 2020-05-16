@@ -11,8 +11,6 @@ configuration. There's a few reasons I'm re-writing it:
 
 * Packages to check out and/or configure
 
-  - json-reformat
-  - restclient
   - org-mode
 
 * Description

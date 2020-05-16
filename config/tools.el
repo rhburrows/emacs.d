@@ -31,3 +31,16 @@
 (use-package pdf-tools
   :config
   (pdf-tools-install))
+
+(use-package json-reformat
+  :ensure t)
+
+(use-package restclient
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+
+  (use-package company-restclient
+    :ensure t
+    :config
+    (add-to-list 'company-backends 'company-restclient)))
