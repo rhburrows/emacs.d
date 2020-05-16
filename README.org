@@ -11,9 +11,6 @@ configuration. There's a few reasons I'm re-writing it:
 
 * Packages to check out and/or configure
 
-  - lsp
-  - lsp-ui
-  - company-lsp
   - treemacs
   - treemacs-projectile
   - treemacs-magit
