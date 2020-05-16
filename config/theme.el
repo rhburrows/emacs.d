@@ -14,13 +14,21 @@
   (setq doom-themes-enable-italic t)
   (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
-  (doom-themes-org-config))
-  ; (setq doom-themes-treemacs-theme "doom-colors")
-  ; (doom-themes-treemacs-config)
+  (doom-themes-org-config)
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config))
 
 (add-to-list 'default-frame-alist '(font . "Fira Code 12"))
 (set-face-attribute 'default t :font "Fira Code 12")
-; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
+
+(use-package all-the-icons
+  :ensure t
+
+  :config
+  (use-package all-the-icons-dired
+    :ensure t
+    :config
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)))
