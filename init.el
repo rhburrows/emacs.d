@@ -27,6 +27,7 @@
 
 (load-user-file "config/packages.el")
 (load-user-file "config/base.el")
+(load-user-file "config/projectile.el")
 (load-user-file "config/theme.el")
 
 ;; Start an emacs server
