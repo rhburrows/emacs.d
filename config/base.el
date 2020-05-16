@@ -2,8 +2,6 @@
 (if (string-equal system-type "darwin")
     (setq alert-default-style 'osx-notifier))
 
-
-
 (defun swap-windows ()
   "If you have 2 windows, it swaps them."
   (interactive)
@@ -81,6 +79,11 @@
   :ensure t
   :config
   (global-company-mode))
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-flycheck-mode))
 
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()
