@@ -120,35 +120,6 @@
 ;;   (read-only-mode))
 ;; (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-;; (defun rhb-w3m-search (query)
-;;   (interactive "MSearch Google: ")
-;;   (let ((w3m-pop-up-windows t))
-;;     (if (one-window-p) (split-window))
-;;     (other-window 1)
-;;     (w3m-search "google" query)))
-;; (global-set-key (kbd "C-c g") 'rhb-w3m-search)
-
-;; (defun rhb-w3m-open-current-page-in-system-browser ()
-;;   (interactive)
-;;   (browse-url w3m-current-url))
-
-;; (add-hook 'w3m-mode-hook
-;;           (lambda ()
-;;             (define-key w3m-mode-map "f" 'rhb-w3m-open-current-page-in-system-browser)))
-
-;; Pianobar
-;; (defun rhb-pianobar-play-start-pause-dwim ()
-;;   (interactive)
-;;   (if (or (not (fboundp 'pianobar-play-or-pause))
-;;           (not (comint-check-proc pianobar-buffer)))
-;;       (pianobar)
-;;     (pianobar-play-or-pause)))
-
-;; (setq pianobar-username "rhburrows@gmail.com")
-;; (setq pianobar-station "6")
-;; (global-set-key (kbd "<f7>") 'rhb-pianobar-play-start-pause-dwim)
-;; (global-set-key (kbd "<f8>") 'pianobar-next-song)
-
 ;; Setup terminal keybindins
 ;; (add-hook 'term-mode-hook
 ;;   (lambda () 

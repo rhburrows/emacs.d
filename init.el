@@ -30,6 +30,9 @@
 (load-user-file "config/projectile.el")
 (load-user-file "config/lsp.el")
 (load-user-file "config/theme.el")
+(load-user-file "config/fun.el")
+
+(load-user-file "languages/markdown.el")
 
 ;; Start an emacs server
 (server-start)
