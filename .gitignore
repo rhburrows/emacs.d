@@ -25,3 +25,4 @@ tramp
 /network-security.data
 emojis/
 transient
+.cache/

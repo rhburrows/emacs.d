@@ -85,6 +85,16 @@
   :config
   (add-hook 'after-init-hook 'global-flycheck-mode))
 
+(use-package treemacs
+  :ensure t
+  :bind
+  ("C-c 0" . treemacs-select-window)
+
+  :config
+  (use-package treemacs-magit
+    :ensure t
+    :after treemacs magit))
+
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()
 ;;   (read-only-mode nil)

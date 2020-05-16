@@ -11,5 +11,10 @@
   (use-package counsel-projectile
     :ensure t
     :config
-    (counsel-projectile-mode)))
+    (counsel-projectile-mode))
+
+  (use-package treemacs-projectile
+    :ensure t
+    :after treemacs
+    ))
   
