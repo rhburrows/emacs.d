@@ -1,22 +1,29 @@
 * Ryan's Emacs config
 
-This branch is a currently in-process re-write of my emacs
-configuration. There's a few reasons I'm re-writing it:
+  This is my Emacs configuration. The main packages that it is organized around are
 
-    - To remove packages I'm not actually using
-    - To explore new packages or newer replacements to ones I use
-    - To try and use lsp-mode to make many of my programming
-    environments more consistent
-    - For fun
+  - Ivy/Counsel/Swiper
+  - LSP
+  - Company
+  - Projectile
+  - Treemacs
+  - Magit
+  - Flycheck
 
-* Packages to check out and/or configure
+** Organization
 
-  - org-mode
+   - config/base.el contains general configuration of emacs or configuration specific to the main packages listed above
+   - config/eshell.el contains configuration related to eshell
+   - config/fun.el contains configuration of emacs packages that are just for fun
+   - config/lsp.el contains LSP specific configuration
+   - config/projectile.el contains configuration specific to Projectile
+   - config/theme.el contains configuration of visual elements
+   - config/tools.el contains configuration of emacs packages that serve a specific purpose but are relatively self-contained
 
-* Description
-
-  TODO: Fill out this description as you add and configure packages
+     The languages/ directory contains elisp files for configuring programming environmets for specific programming languages
 
 ** External dependencies
 
    - The Silver Searcher (ag) must be installed for counsel-ag to be activated
+   - w3m must be present for w3m to be configured as the in-emacs browser
+   - pianobar must be installed to use pianobar mode
