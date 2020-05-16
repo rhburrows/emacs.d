@@ -25,7 +25,6 @@
 (setq custom-file (expand-file-name "custom.el" user-init-dir))
 (load custom-file)
 
-(load-user-file "config/packages.el")
 (load-user-file "config/base.el")
 (load-user-file "config/eshell.el")
 (load-user-file "config/projectile.el")
@@ -33,6 +32,7 @@
 (load-user-file "config/theme.el")
 (load-user-file "config/fun.el")
 
+(load-user-file "languages/typescript.el")
 (load-user-file "languages/markdown.el")
 
 ;; Start an emacs server

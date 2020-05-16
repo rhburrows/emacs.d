@@ -26,3 +26,4 @@ tramp
 emojis/
 transient
 .cache/
+.lsp-session-*

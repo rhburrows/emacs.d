@@ -1,7 +1,8 @@
 (use-package lsp-mode
   :ensure t
-  :config
+  :hook ((typescript-mode . lsp))
 
+  :config
   (use-package lsp-ui
     :ensure t
     )
