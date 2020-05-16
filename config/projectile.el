@@ -9,8 +9,9 @@
 
   (use-package counsel-projectile
     :ensure t
+    :bind
     :config
-    (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-vc)
+    (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-run-eshell)
     (counsel-projectile-mode))
 
   (use-package treemacs-projectile

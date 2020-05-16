@@ -14,10 +14,8 @@ configuration. There's a few reasons I'm re-writing it:
   - pdf-tools
   - json-reformat
   - restclient
-  - multi-term (or other terminal setup)
   - rainbow-mode
   - rainbow-delimeters
-  - aweshell
 
 * Description
 
