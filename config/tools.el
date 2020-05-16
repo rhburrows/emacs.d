@@ -27,3 +27,7 @@
   :ensure t
   :bind
   ("C-c a" . counsel-ag))
+
+(use-package pdf-tools
+  :config
+  (pdf-tools-install))
