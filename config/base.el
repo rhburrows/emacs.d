@@ -77,6 +77,11 @@
   :bind
   ("M-o" . ace-window))
 
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
+
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()
 ;;   (read-only-mode nil)
