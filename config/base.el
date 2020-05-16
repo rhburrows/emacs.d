@@ -2,7 +2,7 @@
 (if (string-equal system-type "darwin")
     (setq alert-default-style 'osx-notifier))
 
-; (global-set-key (kbd "M-o") 'ace-window)
+
 
 (defun swap-windows ()
   "If you have 2 windows, it swaps them."
@@ -71,6 +71,11 @@
   :config
   (global-magit-file-mode 1)
   (setq magit-diff-refine-hunk 'all))
+
+(use-package ace-window
+  :ensure t
+  :bind
+  ("M-o" . ace-window))
 
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()

@@ -11,21 +11,17 @@ configuration. There's a few reasons I'm re-writing it:
 
 * Packages to check out and/or configure
 
-  - ag
-  - treemacs
   - projectile
   - company
+  - flycheck
   - lsp
-  - company-lsp
   - lsp-ui
-  - aweshell
+  - company-lsp
+  - treemacs
   - treemacs-projectile
   - treemacs-magit
   - undo-tree
-  - org-mode
   - markdown-mode
-  - flycheck
-  - ace-window
   - pianobar
   - undo-tree
   - pdf-tools
@@ -39,9 +35,12 @@ configuration. There's a few reasons I'm re-writing it:
   - rainbow-mode
   - rainbow-delimeters
   - whitespace
+  - aweshell
 
 * Description
 
   TODO: Fill out this description as you add and configure packages
 
 ** External dependencies
+
+   - The Silver Searcher (ag) must be installed for counsel-ag to be activated
