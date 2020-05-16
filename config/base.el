@@ -1,3 +1,16 @@
+(require 'package)
+
+; Add melpa to the package sources
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+  (add-to-list 'package-archives (cons "melpa" url) t))
+
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
 ;; Set up notification system for mac
 (if (string-equal system-type "darwin")
     (setq alert-default-style 'osx-notifier))
@@ -58,13 +71,6 @@
   ("C-x C-f" . counsel-find-file)
   ("M-y" . counsel-yank-pop))
 
-;; Configure ag if its available on the system
-(use-package ag
-  :if (executable-find "ag")
-  :ensure t
-  :bind
-  ("C-c a" . counsel-ag))
-
 (use-package magit
   :ensure t
   :bind
@@ -73,11 +79,6 @@
   :config
   (global-magit-file-mode 1)
   (setq magit-diff-refine-hunk 'all))
-
-(use-package ace-window
-  :ensure t
-  :bind
-  ("M-o" . ace-window))
 
 (use-package company
   :ensure t
@@ -98,19 +99,3 @@
   (use-package treemacs-magit
     :ensure t
     :after treemacs magit))
-
-(use-package undo-tree
-  :ensure t
-  :config
-  (global-undo-tree-mode))
-
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
-
-(use-package whitespace
-  :ensure t
-  :config
-  (setq whitespace-line-column 80)
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
