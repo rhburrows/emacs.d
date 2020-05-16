@@ -31,6 +31,8 @@
 
 (global-set-key (kbd "C-c s") 'swap-windows)
 
+(setq-default indent-tabs-mode nil)
+
 (use-package ivy
   :ensure t
   :bind
@@ -99,6 +101,17 @@
   :ensure t
   :config
   (global-undo-tree-mode))
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
+(use-package whitespace
+  :ensure t
+  :config
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()
