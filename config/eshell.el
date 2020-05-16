@@ -9,10 +9,13 @@
       (eshell-send-input)))
   :bind
   ("C-c t" . eshell)
-  (:map eshell-mode-map
-        ("C-l" . eshell-clear-buffer))
-  :config
+  :init
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (bind-keys :map eshell-mode-map
+                         ("C-l" . eshell-clear-buffer))))
 
+  :config
   (use-package eshell-prompt-extras
     :ensure t
     :config
