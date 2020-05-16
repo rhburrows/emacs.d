@@ -11,10 +11,8 @@ configuration. There's a few reasons I'm re-writing it:
 
 * Packages to check out and/or configure
 
-  - undo-tree
   - markdown-mode
   - pianobar
-  - undo-tree
   - pdf-tools
   - w3m
   - json-reformat

@@ -95,6 +95,11 @@
     :ensure t
     :after treemacs magit))
 
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode))
+
 ;; (require 'ansi-color)
 ;; (defun colorize-compilation-buffer ()
 ;;   (read-only-mode nil)
