@@ -32,3 +32,13 @@
     :ensure t
     :config
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)))
+
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (rainbow-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))

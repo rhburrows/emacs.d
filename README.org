@@ -14,8 +14,7 @@ configuration. There's a few reasons I'm re-writing it:
   - pdf-tools
   - json-reformat
   - restclient
-  - rainbow-mode
-  - rainbow-delimeters
+  - org-mode
 
 * Description
 

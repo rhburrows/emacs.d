@@ -32,6 +32,8 @@
 (global-set-key (kbd "C-c s") 'swap-windows)
 
 (setq-default indent-tabs-mode nil)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (use-package ivy
   :ensure t
@@ -112,16 +114,3 @@
   :config
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
-;; (require 'ansi-color)
-;; (defun colorize-compilation-buffer ()
-;;   (read-only-mode nil)
-;;   (ansi-color-apply-on-region compilation-filter-start (point))
-;;   (read-only-mode))
-;; (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
-
-;; Setup terminal keybindins
-;; (add-hook 'term-mode-hook
-;;   (lambda () 
-;;     (define-key term-raw-map (kbd "M-o") 'ace-window)
-;;     (define-key term-raw-map (kbd "C-c C-l") 'comint-clear-buffer)))
