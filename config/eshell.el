@@ -16,6 +16,8 @@
                          ("C-l" . eshell-clear-buffer))))
 
   :config
+  (defalias 'eshell/e 'find-file)
+
   (use-package eshell-prompt-extras
     :ensure t
     :config
