@@ -27,3 +27,4 @@ emojis/
 transient
 .cache/
 .lsp-session-*
+/config/private.el
