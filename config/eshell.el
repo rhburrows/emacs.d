@@ -18,6 +18,12 @@
   :config
   (defalias 'eshell/e 'find-file)
 
+  (defun eshell/in-term (prog &rest args)
+    (switch-to-buffer
+     (apply #'make-term (format "in-term %s %s" prog args) prog nil args))
+    (term-mode)
+    (term-char-mode)))
+
   (use-package eshell-prompt-extras
     :ensure t
     :config
