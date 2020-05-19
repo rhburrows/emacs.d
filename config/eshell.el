@@ -22,7 +22,7 @@
     (switch-to-buffer
      (apply #'make-term (format "in-term %s %s" prog args) prog nil args))
     (term-mode)
-    (term-char-mode)))
+    (term-char-mode))
 
   (use-package eshell-prompt-extras
     :ensure t
