@@ -5,7 +5,8 @@
   :hook (
          (typescript-mode . lsp-deferred)
          (web-mode . lsp-deferred)
-         (go-mode . lsp-deferred))
+         (go-mode . lsp-deferred)
+         (php-mode . lsp-deferred))
 
   :config
   (setq lsp-prefer-flymake nil)

@@ -28,3 +28,4 @@ transient
 .cache/
 .lsp-session-*
 /config/private.el
+/lsp-cache/
