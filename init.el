@@ -37,6 +37,8 @@
 (load-user-file "languages/go.el")
 (load-user-file "languages/markdown.el")
 (load-user-file "languages/php.el")
+(load-user-file "languages/puppet.el")
+(load-user-file "languages/kotlin.el")
 (load-user-file "languages/yaml.el")
 
 (if (file-exists-p (expand-file-name "config/private.el" user-init-dir))
