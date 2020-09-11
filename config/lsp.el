@@ -4,6 +4,7 @@
   :init (setq lsp-keymap-prefix "C-c l")
   :hook (
          (typescript-mode . lsp-deferred)
+         (kotlin-mode . lsp-deferred)
          (web-mode . lsp-deferred)
          (go-mode . lsp-deferred)
          (php-mode . lsp-deferred))
