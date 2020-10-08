@@ -3,7 +3,9 @@
 (use-package ace-window
   :ensure t
   :bind
-  ("M-o" . ace-window))
+  ("M-o" . ace-window)
+  ("M-O" . ace-swap-window)
+  )
 
 (use-package undo-tree
   :ensure t
@@ -20,13 +22,6 @@
   :config
   (setq whitespace-line-column 80)
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
-;; Configure ag if its available on the system
-(use-package ag
-  :if (executable-find "ag")
-  :ensure t
-  :bind
-  ("C-c a" . counsel-ag))
 
 (use-package pdf-tools
   :config
