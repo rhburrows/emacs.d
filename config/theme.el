@@ -12,10 +12,11 @@
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
+  (load-theme 'doom-monokai-spectrum t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
   (setq doom-themes-treemacs-theme "doom-colors")
+  (setq doom-themes-treemacs-enable-variable-pitch nil)
   (doom-themes-treemacs-config))
 
 (add-to-list 'default-frame-alist '(font . "Fira Code 12"))
