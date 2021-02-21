@@ -5,6 +5,7 @@
   :hook (
          (typescript-mode . lsp-deferred)
          (kotlin-mode . lsp-deferred)
+         (java-mode . lsp-deferred)
          (web-mode . lsp-deferred)
          (go-mode . lsp-deferred)
          (php-mode . lsp-deferred))
@@ -16,11 +17,6 @@
     :ensure t
     :commands lsp-ui-mode
     :hook (lsp-mode . lsp-ui-mode))
-
-  (use-package company-lsp
-    :ensure t
-    :config
-    (add-to-list 'company-backends 'company-lsp))
 
   (use-package lsp-ivy
     :ensure t
