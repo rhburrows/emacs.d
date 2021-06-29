@@ -12,6 +12,7 @@
 
   :config
   (setq lsp-prefer-flymake nil)
+  (setq lsp-keep-workspace-alive nil)
   
   (use-package lsp-ui
     :ensure t

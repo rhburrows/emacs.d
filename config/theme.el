@@ -12,18 +12,28 @@
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
   (setq doom-themes-treemacs-theme "doom-colors")
   (setq doom-themes-treemacs-enable-variable-pitch nil)
   (doom-themes-treemacs-config))
 
+(defun rhb/apply-theme (appearance)
+  "Load them, taking curent system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'doom-one-light t))
+    ('dark (load-theme 'doom-one t))))
+
+(add-hook 'ns-system-appearance-change-functions #'rhb/apply-theme)
+
 (add-to-list 'default-frame-alist '(font . "Fira Code 12"))
 (set-face-attribute 'default t :font "Fira Code 12")
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
+
+(global-linum-mode)
 
 (use-package all-the-icons
   :ensure t
