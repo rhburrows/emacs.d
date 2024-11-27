@@ -1,0 +1,7 @@
+
+# Straight.el - ignore everthing except the lockfiles
+straight/*
+!straight/versions
+
+eln-cache
+auto-save-list
