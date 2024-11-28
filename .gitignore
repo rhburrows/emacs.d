@@ -3,5 +3,7 @@
 straight/*
 !straight/versions
 
-eln-cache
 auto-save-list
+eln-cache
+elpa
+transient
