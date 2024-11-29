@@ -21,13 +21,13 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(setq straight-use-package-by-default t)
 (straight-use-package 'use-package)
 
 ;; Load exec-path-from-shell early to fix Mac OSX Sequoia issues
 ;; Its not properly loading the PATH when launched from outside the terminal
 ;; https://github.com/d12frosted/homebrew-emacs-plus/issues/720
 (use-package exec-path-from-shell
-  :straight t
   :demand t
   :init (exec-path-from-shell-initialize))
 
@@ -41,7 +41,6 @@
 		          (file-name-concat user-init-dir "config" file))))
 
 (use-package gcmh
-  :straight t
   :demand
   :config
   (gcmh-mode t))
@@ -49,4 +48,6 @@
 (load-config-file "emacs.el")
 (load-config-file "theme.el")
 (load-config-file "git.el")
+(load-config-file "completion.el")
+(load-config-file "dired.el")
 (load-config-file "misc.el")

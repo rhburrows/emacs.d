@@ -6,4 +6,5 @@ straight/*
 auto-save-list
 eln-cache
 elpa
+history
 transient
