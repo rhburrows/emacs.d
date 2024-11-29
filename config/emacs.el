@@ -14,10 +14,12 @@
   (auto-save-default nil)
   (tab-width 2)
   (indent-tabs-mode nil)
+  (xref-search-program 'ripgrep)
 
   :config
   (require 'whitespace)
   (defalias 'yes-or-no-p 'y-or-n-p)
+  (windmove-default-keybindings)
 
   (menu-bar-mode -1)
   (tool-bar-mode -1)
@@ -34,3 +36,7 @@
   :demand
   :config
   (which-key-mode))
+
+(use-package eldoc
+  :init
+  (global-eldoc-mode))

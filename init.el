@@ -51,6 +51,8 @@
 (load-config-file "completion.el")
 (load-config-file "dired.el")
 (load-config-file "treesit.el")
+(load-config-file "undo.el")
+(load-config-file "terminal.el")
 
 ;; Language specific configurations
 (load-config-file "rust.el")
