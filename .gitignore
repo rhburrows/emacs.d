@@ -4,7 +4,12 @@ straight/*
 !straight/versions
 
 auto-save-list
-eln-cache
-elpa
-history
-transient
+*.elc
+
+/bookmarks
+/eln-cache
+/elpa/
+/eshell/history
+/eshell/lastdir
+/history
+/transient
