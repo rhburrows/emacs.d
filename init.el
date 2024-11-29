@@ -50,4 +50,7 @@
 (load-config-file "git.el")
 (load-config-file "completion.el")
 (load-config-file "dired.el")
-(load-config-file "misc.el")
+(load-config-file "treesit.el")
+
+;; Language specific configurations
+(load-config-file "rust.el")

@@ -29,3 +29,8 @@
   (global-auto-revert-mode t)
 
   (set-charset-priority 'unicode))
+
+(use-package which-key
+  :demand
+  :config
+  (which-key-mode))
