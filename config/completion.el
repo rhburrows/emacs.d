@@ -10,7 +10,8 @@
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+  (completion-category-default nil)
+  (completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package marginalia
   :bind (:map minibuffer-local-map
@@ -37,3 +38,17 @@
          ("M-s r" . consult-ripgrep)
          ("M-y" . consult-yank-pop)
          ))
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.5)
+
+  :init
+  (global-corfu-mode)
+
+  :config
+  (keymap-set corfu-map "RET" `( menu-item "" nil :filter
+                                 ,(lambda (&optional _)
+                                    (and (derived-mode-p 'eshell-mode 'comint-mode)
+                                         #'corfu-send)))))
