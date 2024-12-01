@@ -7,6 +7,7 @@ auto-save-list
 *.elc
 
 /bookmarks
+/elgrep-data.el
 /eln-cache
 /elpa/
 /eshell/history
@@ -15,3 +16,4 @@ auto-save-list
 /projects
 /transient
 /tree-sitter
+/url

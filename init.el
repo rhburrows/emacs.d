@@ -53,6 +53,7 @@
 (load-config-file "treesit.el")
 (load-config-file "undo.el")
 (load-config-file "terminal.el")
+(load-config-file "notes.el")
 
 ;; Language specific configurations
 (load-config-file "rust.el")
