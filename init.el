@@ -57,4 +57,5 @@
 (load-config-file "notes.el")
 
 ;; Language specific configurations
+(load-config-file "markdown.el")
 (load-config-file "rust.el")
