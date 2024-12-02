@@ -1,4 +1,7 @@
 (use-package magit
+  :custom
+  (magit-diff-refine-hunk 'all)
+
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 

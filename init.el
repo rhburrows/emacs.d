@@ -50,6 +50,7 @@
 (load-config-file "git.el")
 (load-config-file "completion.el")
 (load-config-file "dired.el")
+(load-config-file "diff.el")
 (load-config-file "treesit.el")
 (load-config-file "undo.el")
 (load-config-file "terminal.el")

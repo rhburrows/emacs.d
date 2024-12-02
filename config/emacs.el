@@ -15,6 +15,7 @@
   (tab-width 2)
   (indent-tabs-mode nil)
   (xref-search-program 'ripgrep)
+  (frame-resize-pixelwise t)
 
   :config
   (require 'whitespace)
