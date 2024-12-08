@@ -1,7 +1,9 @@
 (use-package vertico
   :config
   (vertico-mode)
-  (vertico-mouse-mode))
+  (vertico-mouse-mode)
+  :custom
+  (vertico-cycle t))
 
 (use-package savehist
   :config
@@ -34,9 +36,13 @@
   :bind (
          ("C-x b" . consult-buffer)
          ("C-x r b" . consult-bookmark)
+         ("C-x p b" . consult-project-buffer)
+         ("C-h i" . consult-info)
+         ("C-s" . consult-line)
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
          ("M-s r" . consult-ripgrep)
+         ("M-s u" . consult-focus-lines)
          ("M-y" . consult-yank-pop)
          ))
 
