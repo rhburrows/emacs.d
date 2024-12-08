@@ -41,6 +41,7 @@
          ("C-s" . consult-line)
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
+         ("M-g i" . consult-imenu)
          ("M-s r" . consult-ripgrep)
          ("M-s u" . consult-focus-lines)
          ("M-y" . consult-yank-pop)
