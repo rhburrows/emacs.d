@@ -35,6 +35,7 @@
          ("C-x b" . consult-buffer)
          ("C-x r b" . consult-bookmark)
          ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
          ("M-s r" . consult-ripgrep)
          ("M-y" . consult-yank-pop)
          ))
