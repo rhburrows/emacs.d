@@ -31,7 +31,10 @@
   (show-paren-mode t)
   (global-auto-revert-mode t)
 
-  (set-charset-priority 'unicode))
+  (set-charset-priority 'unicode)
+
+  :bind (
+         ("M-o" . other-window)))
 
 (use-package which-key
   :demand
