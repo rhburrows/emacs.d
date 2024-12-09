@@ -59,3 +59,4 @@
 ;; Language specific configurations
 (load-config-file "markdown.el")
 (load-config-file "rust.el")
+(load-config-file "typescript.el")

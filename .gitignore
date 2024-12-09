@@ -13,6 +13,7 @@ auto-save-list
 /eshell/history
 /eshell/lastdir
 /history
+/org-persist
 /projects
 /transient
 /tree-sitter
