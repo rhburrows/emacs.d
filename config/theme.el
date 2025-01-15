@@ -30,3 +30,15 @@
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+; Update the modeline
+(use-package moody
+  :config
+  (moody-replace-mode-line-front-space)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode))
+
+; But hide the modeline in some modes
+(use-package hide-mode-line
+  :config
+  (add-hook 'eshell-mode-hook #'hide-mode-line-mode))
