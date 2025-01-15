@@ -56,6 +56,7 @@
 (load-config-file "terminal.el")
 (load-config-file "docker.el")
 (load-config-file "notes.el")
+(load-config-file "gptel.el")
 
 ;; Language specific configurations
 (load-config-file "markdown.el")

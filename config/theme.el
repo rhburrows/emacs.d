@@ -4,7 +4,7 @@
     "Load theme, taking current system APPEARANCE into consideration."
     (pcase appearance
       ('light (load-theme 'doom-one-light t))
-      ('dark (load-theme 'doom-one t))))
+      ('dark (load-theme 'doom-city-lights t))))
   :custom-face
   (default ((t (:family "Fira Code" :height 140))))
 
