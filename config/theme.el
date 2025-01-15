@@ -41,4 +41,9 @@
 ; But hide the modeline in some modes
 (use-package hide-mode-line
   :config
-  (add-hook 'eshell-mode-hook #'hide-mode-line-mode))
+  (add-hook 'eshell-mode-hook #'hide-mode-line-mode)
+  (add-hook 'compilation-mode-hook #'hide-mode-line-mode))
+
+(use-package ansi-color
+  :config
+  (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter))
