@@ -61,6 +61,7 @@
 (load-config-file "gptel.el")
 
 ;; Language specific configurations
+(load-config-file "java.el")
 (load-config-file "markdown.el")
 (load-config-file "neon.el")
 (load-config-file "php.el")
