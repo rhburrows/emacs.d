@@ -56,6 +56,7 @@
 (load-config-file "terminal.el")
 (load-config-file "eshell.el")
 (load-config-file "docker.el")
+(load-config-file "org.el")
 (load-config-file "notes.el")
 (load-config-file "gptel.el")
 
@@ -66,3 +67,4 @@
 (load-config-file "rust.el")
 (load-config-file "typescript.el")
 (load-config-file "yaml.el")
+(load-config-file "zig.el")
