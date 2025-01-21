@@ -69,3 +69,6 @@
 (load-config-file "typescript.el")
 (load-config-file "yaml.el")
 (load-config-file "zig.el")
+
+;; Start things off in eshell
+(eshell)

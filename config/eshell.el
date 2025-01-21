@@ -23,7 +23,16 @@
        'read-only t
      'front-sticky   '(font-lock-face read-only)
      'rear-nonsticky '(font-lock-face read-only))))
+
+  :hook
+  (eshell-mode-hook . (lambda ()
+                        (setq-local imenu-generic-expression
+                                    '(("Prompt" " $ \\(.*\\)" 1)))))
+
   :custom
-  (eshell-prompt-function 'rhb/eshell-prompt)
+  (eshell-highlight-prompt nil)
   (eshell-prompt-regexp "^[^#$\n]* [$#] ")
-  (eshell-highlight-prompt nil))
+  (eshell-prompt-function 'rhb/eshell-prompt)
+
+  (eshell-visual-options '(("git" "--help" "--paginate")))
+  (eshell-visual-subcommands '(("git" "log" "diff" "show"))))
