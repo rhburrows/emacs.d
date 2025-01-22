@@ -1,4 +1,6 @@
-(use-package org)
+(use-package org
+  :custom
+  (org-startup-truncated nil))
 
 (use-package org-remark
   :after org
