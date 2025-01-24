@@ -45,6 +45,7 @@
   :config
   (gcmh-mode t))
 
+(load-config-file "docs.el")
 (load-config-file "emacs.el")
 (load-config-file "theme.el")
 (load-config-file "git.el")

@@ -7,6 +7,7 @@ auto-save-list
 *.elc
 
 /bookmarks
+/devdocs
 /elgrep-data.el
 /eln-cache
 /elpa/
