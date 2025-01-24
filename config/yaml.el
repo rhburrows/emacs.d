@@ -1,14 +1,9 @@
-(use-package yaml-mode
-  :init
-  (rhb/treesit-install-grammar 'yaml))
-
 (use-package yaml-ts-mode
+  :init
+  (rhb/treesit-install-grammar 'yaml)
   :mode "\\.ya?ml\\'")
 
 (use-package yaml-pro
-  :after yaml-mode
-  :mode "\\.ya?ml\\'"
-
   :hook (yaml-ts-mode . yaml-pro-ts-mode)
 
   :bind (:map yaml-pro-ts-mode-map

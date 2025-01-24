@@ -57,10 +57,10 @@
 (load-config-file "terminal.el")
 (load-config-file "eshell.el")
 (load-config-file "docker.el")
-(load-config-file "org.el")
 (load-config-file "notes.el")
 (load-config-file "gptel.el")
 (load-config-file "verb.el")
+(load-config-file "org.el")
 
 ;; Language specific configurations
 (load-config-file "java.el")
