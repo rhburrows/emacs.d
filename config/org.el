@@ -1,4 +1,6 @@
 (use-package org
+  :config
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
   :custom
   (org-startup-truncated nil))
 

@@ -59,6 +59,7 @@
 (load-config-file "org.el")
 (load-config-file "notes.el")
 (load-config-file "gptel.el")
+(load-config-file "verb.el")
 
 ;; Language specific configurations
 (load-config-file "java.el")
