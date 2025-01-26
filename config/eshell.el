@@ -24,6 +24,10 @@
      'front-sticky   '(font-lock-face read-only)
      'rear-nonsticky '(font-lock-face read-only))))
 
+  ;; For some reason I can't get setting this value to work via the `:custom` section below'
+  (setq eshell-visual-commands '("top" "htop" "less" "more"
+                                 "opctl"))
+
   :hook
   (eshell-mode-hook . (lambda ()
                         (setq-local imenu-generic-expression
