@@ -31,10 +31,7 @@
   (show-paren-mode t)
   (global-auto-revert-mode t)
 
-  (set-charset-priority 'unicode)
-
-  :bind (
-         ("M-o" . other-window)))
+  (set-charset-priority 'unicode))
 
 (use-package which-key
   :demand
@@ -44,3 +41,7 @@
 (use-package eldoc
   :init
   (global-eldoc-mode))
+
+(use-package ace-window
+  :config
+  (global-set-key (kbd "M-o") 'ace-window))
