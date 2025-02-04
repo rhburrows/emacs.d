@@ -31,6 +31,9 @@
   :demand t
   :init (exec-path-from-shell-initialize))
 
+;; Force early loading of org-mode so there isn't a version mismatch later
+(straight-use-package 'org)
+
 ;; Ideally this would be determined dynamically based user-emacs-directory but that isn't being set correctly at startup
 (defconst user-init-dir "~/.emacs.d/")
 
