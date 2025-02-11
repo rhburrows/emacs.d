@@ -1,14 +1,17 @@
-(use-package doom-themes
+(use-package catppuccin-theme
   :init
   (defun rhb/apply-theme (appearance)
     "Load theme, taking current system APPEARANCE into consideration."
     (pcase appearance
-      ('light (load-theme 'doom-one-light t))
-      ('dark (load-theme 'doom-city-lights t))))
+      ('light (setq catppuccin-flavor 'latte))
+      ('dark (setq catppuccin-flavor 'macchiato)))
+    (catppuccin-reload))
+
   :custom-face
   (default ((t (:family "Fira Code" :height 140))))
 
   :config
+  (load-theme 'catppuccin :no-confirm)
   (rhb/apply-theme ns-system-appearance)
   (add-hook 'ns-system-appearance-change-functions 'rhb/apply-theme))
 
