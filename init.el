@@ -50,6 +50,7 @@
 
 (load-config-file "docs.el")
 (load-config-file "emacs.el")
+(load-config-file "ibuffer.el")
 (load-config-file "theme.el")
 (load-config-file "git.el")
 (load-config-file "completion.el")
