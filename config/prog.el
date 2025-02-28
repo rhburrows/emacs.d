@@ -13,3 +13,12 @@
     (interactive "SGrammar: ")
     (unless (treesit-language-available-p grammar)
       (treesit-install-language-grammar grammar))))
+
+
+(use-package apheleia
+  :ensure t
+
+  :hook (prog-mode . apheleia-mode)
+
+  :custom
+  (apheleia-mode-lighter nil))

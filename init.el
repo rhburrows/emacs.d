@@ -56,7 +56,7 @@
 (load-config-file "completion.el")
 (load-config-file "dired.el")
 (load-config-file "diff.el")
-(load-config-file "treesit.el")
+(load-config-file "prog.el")
 (load-config-file "undo.el")
 (load-config-file "terminal.el")
 (load-config-file "eshell.el")
