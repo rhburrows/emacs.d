@@ -1,13 +1,11 @@
 (use-package obsidian
+  ;; Switching to master branch until a new version gets released including the following
   ;; https://github.com/licht1stein/obsidian.el/pull/100
-  ;; Temporarily use jayemar's branch until this PR gets merged
-  ;; I was running into a crash when `tags:` in the front matter was empty
-  ;; this branch fixes it as well as speeding things up
   :straight (obsidian
              :type git
              :host github
-             :repo "jayemar/obsidian.el"
-             :branch "jayemar/hashtable-for-files-cache")
+             :repo "licht1stein/obsidian.el"
+             :branch "master")
 
   :custom
   (obsidian-directory "~/Documents/Notes")
@@ -18,6 +16,7 @@
 
   :bind (
          ("C-c !" . obsidian-daily-note)
+         ("C-c c" . obsidian-capture)
 
          :map obsidian-mode-map
          ("C-c C-o" . obsidian-follow-link-at-point)
