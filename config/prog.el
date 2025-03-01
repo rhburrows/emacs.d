@@ -22,3 +22,10 @@
 
   :custom
   (apheleia-mode-lighter nil))
+
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode t))
+
+(use-package rainbow-mode
+  :hook (prog-mode . rainbow-mode))
