@@ -67,6 +67,7 @@
 (load-config-file "org.el")
 
 ;; Language specific configurations
+(load-config-file "go.el")
 (load-config-file "java.el")
 (load-config-file "markdown.el")
 (load-config-file "neon.el")
