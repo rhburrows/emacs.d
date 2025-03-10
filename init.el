@@ -62,7 +62,7 @@
 (load-config-file "eshell.el")
 (load-config-file "docker.el")
 (load-config-file "notes.el")
-(load-config-file "gptel.el")
+(load-config-file "ai.el")
 (load-config-file "verb.el")
 (load-config-file "org.el")
 
@@ -76,6 +76,10 @@
 (load-config-file "typescript.el")
 (load-config-file "yaml.el")
 (load-config-file "zig.el")
+
+;; Allow for machine-specific overrides (e.g. for work machine configurations)
+(when (file-exists-p (expand-file-name "~/.local.el"))
+  (load-file (expand-file-name "~/.local.el")))
 
 ;; Start things off in eshell
 (eshell)
