@@ -36,6 +36,8 @@
 
 ;; Ideally this would be determined dynamically based user-emacs-directory but that isn't being set correctly at startup
 (defconst user-init-dir "~/.emacs.d/")
+(defconst site-lisp-dir (expand-file-name (concat user-init-dir "site-lisp/")))
+(add-to-list 'load-path site-lisp-dir)
 
 (defun load-config-file (file)
   (interactive "f")
@@ -48,8 +50,8 @@
   :config
   (gcmh-mode t))
 
-(load-config-file "docs.el")
 (load-config-file "emacs.el")
+(load-config-file "docs.el")
 (load-config-file "ibuffer.el")
 (load-config-file "theme.el")
 (load-config-file "git.el")
@@ -73,6 +75,7 @@
 (load-config-file "neon.el")
 (load-config-file "php.el")
 (load-config-file "rust.el")
+(load-config-file "sql.el")
 (load-config-file "typescript.el")
 (load-config-file "yaml.el")
 (load-config-file "zig.el")
