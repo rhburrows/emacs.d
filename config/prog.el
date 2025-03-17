@@ -4,6 +4,7 @@
         '((dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile" "v0.2.0"))
           (go . ("https://github.com/tree-sitter/tree-sitter-go" "v0.23.4"))
           (gomod . ("https://github.com/camdencheek/tree-sitter-gomod" "v1.1.0"))
+          (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.23.1"))
           (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.24.8"))
           (rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.21.2"))
           (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "tsx/src"))
@@ -16,11 +17,14 @@
     (unless (treesit-language-available-p grammar)
       (treesit-install-language-grammar grammar))))
 
-
 (use-package apheleia
   :ensure t
 
   :hook (prog-mode . apheleia-mode)
+
+  :config
+  (setf (alist-get 'js-ts-mode apheleia-mode-alist)
+        '(denofmt-js))
 
   :custom
   (apheleia-mode-lighter nil))
