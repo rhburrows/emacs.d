@@ -30,6 +30,7 @@
   (electric-pair-mode t)
   (show-paren-mode t)
   (global-auto-revert-mode t)
+  (repeat-mode)
 
   (set-charset-priority 'unicode))
 
@@ -45,3 +46,24 @@
 (use-package ace-window
   :config
   (global-set-key (kbd "M-o") 'ace-window))
+
+(use-package devil
+  :config
+  (defvar movement-repeat-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map (kbd "p") #'previous-line)
+      (define-key map (kbd "n") #'next-line)
+      (define-key map (kbd "b") #'backward-char)
+      (define-key map (kbd "f") #'forward-char)
+      map))
+  (dolist (cmd '(previous-line next-line backward-char forward-char))
+    (put cmd 'repeat-map 'movement-repeat-map))
+  (defvar meta-movement-repeat-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map (kbd "f") #'forward-word)
+      (define-key map (kbd "p") #'backward-word)
+      map))
+  (dolist (cmd '(forward-word backward-word))
+    (put cmd 'repeat-map 'meta-movement-repeat-map))
+
+  (global-devil-mode))
