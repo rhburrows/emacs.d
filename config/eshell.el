@@ -1,6 +1,6 @@
 (use-package eshell
   :config
-  ; Originally based on https://lambdaland.org/posts/2024-08-19_fancy_eshell_prompt/
+  ;; Originally based on https://lambdaland.org/posts/2024-08-19_fancy_eshell_prompt/
   (defun rhb/eshell-prompt ()
     "A pretty shell prompt with git status"
     (let* ((cwd (abbreviate-file-name (eshell/pwd)))
@@ -20,12 +20,16 @@
                  (propertize "➤" 'font-lock-face (list :foreground (if (< 0 x-stat) "red" "green"))))
                (propertize cwd 'font-lock-face '(:foreground "#45babf"))
                git-chunk)
-     'front-sticky   '(font-lock-face read-only)
-     'rear-nonsticky '(font-lock-face read-only))))
+       'front-sticky   '(font-lock-face read-only)
+       'rear-nonsticky '(font-lock-face read-only))))
 
   ;; For some reason I can't get setting this value to work via the `:custom` section below'
   (setq eshell-visual-commands '("top" "htop" "less" "more"
                                  "opctl"))
+
+  :bind (
+         ("C-c e" . eshell)
+         )
 
   :hook
   (eshell-mode-hook . (lambda ()
