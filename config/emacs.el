@@ -66,4 +66,7 @@
   (dolist (cmd '(forward-word backward-word))
     (put cmd 'repeat-map 'meta-movement-repeat-map))
 
-  (global-devil-mode))
+  (global-devil-mode)
+
+  :custom
+  (devil-prompt "\U0001F608 %t"))
