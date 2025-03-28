@@ -1,4 +1,5 @@
-(use-package emacs
+(use-package treesit
+  :straight (:type built-in)
   :init
   (setq treesit-language-source-alist
         '((dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile" "v0.2.0"))
@@ -35,3 +36,12 @@
 
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
+
+(use-package compile
+  :straight (compile :type built-in)
+  :hook (compilation-filter . colorize-compilation-buffer)
+  :config
+  (require 'ansi-color)
+  (defun colorize-compilation-buffer ()
+    (let ((inhibit-read-only t))
+      (ansi-color-apply-on-region (point-min) (point-max)))))

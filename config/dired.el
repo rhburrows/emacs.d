@@ -1,4 +1,6 @@
-(use-package emacs
+(use-package dired
+  :defer t
+  :straight (compile :type built-in)
   :custom
   (dired-auto-revert-buffer t)
   (dired-recursive-copies 'always)
@@ -12,3 +14,7 @@
 (use-package dired-narrow
   :bind
   (:map dired-mode-map ("/" . dired-narrow-fuzzy)))
+
+(use-package diredfl
+  :custom
+  (diredfl-global-mode t))
