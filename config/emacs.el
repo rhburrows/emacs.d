@@ -45,7 +45,8 @@
 
 (use-package ace-window
   :config
-  (global-set-key (kbd "M-o") 'ace-window))
+  (global-set-key (kbd "M-o") 'ace-window)
+  (global-set-key (kbd "C-c s") 'ace-swap-window))
 
 (use-package devil
   :config
