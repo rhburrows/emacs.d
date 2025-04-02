@@ -9,9 +9,10 @@
                    :stream t
                    :models '("qwen2.5-coder:14b"))))
 
-(use-package aider
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
+(use-package aidermacs
+  :straight (:host github :repo "MatthewZMD/aidermacs")
   :bind
-  (( "C-c a" . aider-transient-menu))
+  (( "C-c a" . aidermacs-transient-menu))
   :custom
-  (aider-args `("--config" ,(expand-file-name "~/.aider.conf.yml"))))
+  (aidermacs-backend 'vterm)
+  (aidermacs-default-model "sonnet"))
