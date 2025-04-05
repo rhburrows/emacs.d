@@ -32,6 +32,11 @@
   (global-auto-revert-mode t)
   (repeat-mode)
 
+  (defvar-keymap scroll-keymap
+    :repeat t
+    "u" #'scroll-down-command
+    "v" #'scroll-up-command)
+
   (set-charset-priority 'unicode))
 
 (use-package which-key
