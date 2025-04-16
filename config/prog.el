@@ -45,3 +45,9 @@
   (defun colorize-compilation-buffer ()
     (let ((inhibit-read-only t))
       (ansi-color-apply-on-region (point-min) (point-max)))))
+
+(use-package prog-mode
+  :straight (compile :type built-in)
+  :bind
+  ((:map prog-mode-map
+         ("C-x `" . flymake-goto-next-error))))
