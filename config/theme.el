@@ -34,19 +34,38 @@
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-; Update the modeline
+;; Update the modeline
 (use-package moody
   :config
   (moody-replace-mode-line-front-space)
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
 
-; But hide the modeline in some modes
+;; But hide the modeline in some modes
 (use-package hide-mode-line
   :config
   (add-hook 'eshell-mode-hook #'hide-mode-line-mode)
   (add-hook 'vterm-mode-hook #'hide-mode-line-mode)
   (add-hook 'compilation-mode-hook #'hide-mode-line-mode))
+
+(defvar rhb/mode-line-exclude-modes
+  '(devil-mode
+    org-remark-mode
+    org-remark-global-tracking-mode
+    gcmh-mode
+    undo-tree-mode
+    which-key-mode
+    rainbow-mode
+    eldoc-mode)
+  "Minor modes to hide from the mode line.")
+
+(defun rhb/hide-minor-modes ()
+  "Remove selected minor modes from `minor-mode-alist`."
+  (dolist (mode rhb/mode-line-exclude-modes)
+    (setq minor-mode-alist
+          (assq-delete-all mode minor-mode-alist))))
+
+(add-hook 'after-change-major-mode-hook #'rhb/hide-minor-modes)
 
 (use-package ansi-color
   :config
