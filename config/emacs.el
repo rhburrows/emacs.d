@@ -17,6 +17,9 @@
   (xref-search-program 'ripgrep)
   (frame-resize-pixelwise t)
 
+  (enable-recursive-minibuffers t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
+
   :config
   (require 'whitespace)
   (defalias 'yes-or-no-p 'y-or-n-p)

@@ -32,6 +32,8 @@
 
 (use-package embark-consult)
 
+(use-package wgrep)
+
 (use-package consult
   :bind (
          ("C-x b" . consult-buffer)
@@ -51,9 +53,13 @@
   :custom
   (corfu-auto t)
   (corfu-auto-delay 0.5)
+  (corfu-cycle t)
 
   :init
   (global-corfu-mode)
+
+  :bind
+  (:map corfu-map ("ESC" . corfu-quit))
 
   :config
   (keymap-set corfu-map "RET" `( menu-item "" nil :filter
