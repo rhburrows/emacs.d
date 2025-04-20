@@ -63,7 +63,6 @@
 (load-config-file "terminal.el")
 (load-config-file "eshell.el")
 (load-config-file "docker.el")
-(load-config-file "notes.el")
 (load-config-file "ai.el")
 (load-config-file "verb.el")
 (load-config-file "org.el")
