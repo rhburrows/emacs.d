@@ -36,12 +36,26 @@
   :bind (
          ("C-c c" . org-roam-dailies-capture-today)
          ("C-c !" . org-roam-dailies-goto-today)
+
+         ("C-c n c" . org-roam-capture)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n l" . org-roam-buffer-toggle)
          )
 
   :custom
   (org-roam-directory (expand-file-name "~/Notes"))
   (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db"))
-  (org-roam-dailies-directory "fleeting/"))
+  (org-roam-dailies-directory "fleeting/")
+
+  (org-roam-capture-templates '(
+                                ("n" "note" plain "%?"
+                                 :target (file+head "zk/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                    "#+title: ${title}\n")
+                                 :unnarrowed t)
+                                ("p" "project" plan "%?"
+                                 :target (file+head "projects/${slug}.org"
+                                                    "#+title: ${title}\n")
+                                 :unnarrowed t))))
 
 (use-package org-remark
   :after org
