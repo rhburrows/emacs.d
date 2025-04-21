@@ -14,5 +14,6 @@
   :bind
   (( "C-c a" . aidermacs-transient-menu))
   :custom
-  (aidermacs-backend 'vterm)
+  (aidermacs-backend 'comint)
+  (aidermacs-show-diff-after-change t)
   (aidermacs-default-model "sonnet"))

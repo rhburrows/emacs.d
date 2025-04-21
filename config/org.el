@@ -71,4 +71,4 @@
   :init
   (org-remark-global-tracking-mode +1)
   :custom
-  (org-remark-notes-file-name "~/.remarks.org"))
+  (org-remark-notes-file-name "~/Notes/remarks.org"))
