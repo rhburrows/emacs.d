@@ -32,6 +32,9 @@
 (use-package org-roam
   :config
   (org-roam-db-autosync-mode)
+  (let ((template-file (file-name-concat org-roam-directory "templates/capture.el")))
+    (if (f-exists? template-file)
+        (load-file template-file)))
 
   :bind (
          ("C-c n c" . org-roam-capture)
@@ -41,17 +44,7 @@
 
   :custom
   (org-roam-directory (expand-file-name "~/Notes"))
-  (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db"))
-
-  (org-roam-capture-templates '(
-                                ("n" "note" plain "%?"
-                                 :target (file+head "zk/%<%Y%m%d%H%M%S>-${slug}.org"
-                                                    "#+title: ${title}\n")
-                                 :unnarrowed t)
-                                ("p" "project" plan "%?"
-                                 :target (file+head "projects/${slug}.org"
-                                                    "#+title: ${title}\n")
-                                 :unnarrowed t))))
+  (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db")))
 
 (use-package org-remark
   :after org
