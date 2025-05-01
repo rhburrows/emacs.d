@@ -70,3 +70,17 @@
 (use-package ansi-color
   :config
   (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter))
+
+(use-package pulsar
+  :custom
+  (pulsar-pulse t)
+  (pulsar-delay 0.04)
+  (pulsar-face 'pulsar-cyan)
+
+  :config
+  (pulsar-global-mode 1)
+
+  :hook
+  (next-error-hook . pulsar-pulse-line)
+  (consult-after-jump-hook . pulsar-recenter-top)
+  (consult-after-jump-hook . pulsar-reveal-entry))
