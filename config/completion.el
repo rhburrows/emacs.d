@@ -68,7 +68,7 @@
 
 (use-package corfu
   :custom
-  (corfu-auto t)
+  (corfu-auto nil)
   (corfu-auto-delay 0.5)
   (corfu-cycle t)
 

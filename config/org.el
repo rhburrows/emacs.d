@@ -3,6 +3,8 @@
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
+  :hook (org-mode . turn-on-auto-fill)
+
   :custom
   (org-startup-truncated nil)
   (org-startup-indented t)
