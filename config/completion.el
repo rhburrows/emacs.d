@@ -37,17 +37,34 @@
 (use-package consult
   :bind (
          ("C-x b" . consult-buffer)
+         ("M-y" . consult-yank-pop)
+         ("C-h i" . consult-info)
+
          ("C-x r b" . consult-bookmark)
          ("C-x p b" . consult-project-buffer)
-         ("C-h i" . consult-info)
-         ("C-s" . consult-line)
+
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
-         ("M-g i" . consult-imenu)
-         ("M-s r" . consult-ripgrep)
          ("M-s u" . consult-focus-lines)
-         ("M-y" . consult-yank-pop)
+
+         ;; Search-related functions
+         ("C-s" . consult-line)
+         ("M-g i" . consult-imenu)
+         ("M-g I" .  consult-imenu-multi)
+         ("M-g f" . consult-flymake)
+         ("M-s r" . consult-ripgrep)
          ))
+
+(consult-customize
+ consult-line consult-imenu consult-imenu-multi consult-flymake consult-ripgrep
+ :keymap (let ((map (make-sparse-keymap)))
+           (define-key map (kbd "M-e") #'embark-export)
+           map)
+
+ consult-line
+ :keymap (let ((map (make-sparse-keymap)))
+           (define-key map (kbd "C-s") #'previous-history-element)
+           map))
 
 (use-package corfu
   :custom
