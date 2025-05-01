@@ -1,6 +1,7 @@
 (use-package org
   :config
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
   :custom
   (org-startup-truncated nil)
@@ -30,6 +31,8 @@
   (org-tidy-properties-style 'fringe))
 
 (use-package org-roam
+  :after org
+
   :config
   (org-roam-db-autosync-mode)
   (let ((template-file (file-name-concat org-roam-directory "templates/capture.el")))
@@ -39,8 +42,9 @@
   :bind (
          ("C-c n c" . org-roam-capture)
          ("C-c n f" . org-roam-node-find)
+         :map org-mode-map
          ("C-c n l" . org-roam-buffer-toggle)
-         )
+         ("C-c n i" . org-roam-node-insert))
 
   :custom
   (org-roam-directory (expand-file-name "~/Notes"))
