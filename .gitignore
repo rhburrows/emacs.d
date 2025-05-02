@@ -21,3 +21,5 @@ auto-save-list
 /url
 /tramp
 /debug-adapters/
+/.org-roam.db
+/.org-id-locations
