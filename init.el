@@ -65,6 +65,7 @@
 (load-config-file "docker.el")
 (load-config-file "ai.el")
 (load-config-file "verb.el")
+(load-config-file "bib.el")
 (load-config-file "org.el")
 
 ;; Language specific configurations

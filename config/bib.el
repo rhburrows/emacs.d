@@ -1,0 +1,86 @@
+(use-package bibtex
+  :init
+  (defun rhb/capture-new-bib-reference ()
+    (interactive)
+    (let ((bibliography (file-name-concat rhb/notes-directory "references.bib")))
+      (find-file bibliography)
+      (call-interactively 'bibtex-entry)))
+
+  :custom
+  (bibtex-dialect 'biblatex)
+  (bibtex-user-optional-fields
+   '(("keywords" "Keywords to describe the entry" "")
+     ("file" "Link to a document file." "" )))
+  (bibtex-align-at-equal-sign t)
+
+  :bind ("C-c n b" . rhb/capture-new-bib-reference))
+
+(use-package citar
+  :demand t
+
+  :after org
+
+  :hook
+  (org-mode . citar-capf-setup)
+
+  :config
+  (defvar citar-indicator-files-icons
+    (citar-indicator-create
+     :symbol (nerd-icons-faicon
+              "nf-fa-file_o"
+              :face 'nerd-icons-green
+              :v-adjust -0.1)
+     :function #'citar-has-files
+     :padding "  " ; need this because the default padding is too low for these icons
+     :tag "has:files"))
+  (defvar citar-indicator-links-icons
+    (citar-indicator-create
+     :symbol (nerd-icons-faicon
+              "nf-fa-link"
+              :face 'nerd-icons-orange
+              :v-adjust 0.01)
+     :function #'citar-has-links
+     :padding "  "
+     :tag "has:links"))
+  (defvar citar-indicator-notes-icons
+    (citar-indicator-create
+     :symbol (nerd-icons-codicon
+              "nf-cod-note"
+              :face 'nerd-icons-blue
+              :v-adjust -0.3)
+     :function #'citar-has-notes
+     :padding "    "
+     :tag "has:notes"))
+  (defvar citar-indicator-cited-icons
+    (citar-indicator-create
+     :symbol (nerd-icons-faicon
+              "nf-fa-circle_o"
+              :face 'nerd-icons-green)
+     :function #'citar-is-cited
+     :padding "  "
+     :tag "is:cited"))
+
+  :custom
+  (org-cite-global-bibliography (list (file-name-concat rhb/notes-directory "references.bib")))
+  (org-cite-insert-processor 'citar)
+  (org-cite-follow-processor 'citar)
+  (org-cite-activate-processor 'citar)
+  (citar-bibliography org-cite-global-bibliography)
+  (citar-at-point-function 'embark-act)
+  (citar-indicators (list
+                     citar-indicator-files-icons
+                     citar-indicator-links-icons
+                     citar-indicator-notes-icons
+                     citar-indicator-cited-icons
+                     )))
+
+(use-package citar-embark
+  :after (citar embark)
+  :config
+  (citar-embark-mode))
+
+(use-package citar-org-roam
+  :after (citar org-roam)
+  :config
+  (citar-org-roam-mode))
+
