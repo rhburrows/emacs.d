@@ -11,19 +11,16 @@
   (bibtex-user-optional-fields
    '(("keywords" "Keywords to describe the entry" "")
      ("file" "Link to a document file." "" )))
+  (bibtex-autokey-year-title-separator "_")
   (bibtex-align-at-equal-sign t)
 
   :bind ("C-c n b" . rhb/capture-new-bib-reference))
 
 (use-package citar
-  :demand t
-
-  :after org
-
   :hook
   (org-mode . citar-capf-setup)
 
-  :config
+  :init
   (defvar citar-indicator-files-icons
     (citar-indicator-create
      :symbol (nerd-icons-faicon
@@ -33,6 +30,7 @@
      :function #'citar-has-files
      :padding "  " ; need this because the default padding is too low for these icons
      :tag "has:files"))
+
   (defvar citar-indicator-links-icons
     (citar-indicator-create
      :symbol (nerd-icons-faicon
@@ -42,6 +40,7 @@
      :function #'citar-has-links
      :padding "  "
      :tag "has:links"))
+
   (defvar citar-indicator-notes-icons
     (citar-indicator-create
      :symbol (nerd-icons-codicon
@@ -51,6 +50,7 @@
      :function #'citar-has-notes
      :padding "    "
      :tag "has:notes"))
+
   (defvar citar-indicator-cited-icons
     (citar-indicator-create
      :symbol (nerd-icons-faicon
@@ -60,6 +60,7 @@
      :padding "  "
      :tag "is:cited"))
 
+
   :custom
   (org-cite-global-bibliography (list (file-name-concat rhb/notes-directory "references.bib")))
   (org-cite-insert-processor 'citar)
@@ -67,12 +68,14 @@
   (org-cite-activate-processor 'citar)
   (citar-bibliography org-cite-global-bibliography)
   (citar-at-point-function 'embark-act)
-  (citar-indicators (list
-                     citar-indicator-files-icons
-                     citar-indicator-links-icons
-                     citar-indicator-notes-icons
-                     citar-indicator-cited-icons
-                     )))
+
+  :config
+  (setq citar-indicators (list
+                          citar-indicator-files-icons
+                          citar-indicator-links-icons
+                          citar-indicator-notes-icons
+                          citar-indicator-cited-icons
+                          )))
 
 (use-package citar-embark
   :after (citar embark)
@@ -80,7 +83,16 @@
   (citar-embark-mode))
 
 (use-package citar-org-roam
+  :demand t
   :after (citar org-roam)
   :config
   (citar-org-roam-mode))
 
+(use-package biblio)
+
+(use-package biblio-openlibrary
+  :after biblio
+  :straight (biblio-openlibrary
+             :type git
+             :host github
+             :repo "fabcontigiani/biblio-openlibrary"))

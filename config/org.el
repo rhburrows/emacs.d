@@ -11,7 +11,6 @@
   (org-blank-before-new-entry '(heading . nil) (plain-list-item . nil))
 
   :config
-  (defvar rhb/notes-directory (expand-file-name "~/Notes"))
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
   (org-babel-do-load-languages
@@ -20,6 +19,10 @@
      (emacs-lisp . t)
      (dot . t)
      ))
+
+  (org-link-set-parameters
+   "x-devonthink-item"
+   :follow (lambda (url arg) (browse-url (concat "x-devonthink-item:" url) arg)))
 
   :hook (org-mode . turn-on-auto-fill))
 
@@ -37,6 +40,8 @@
   :hook (org-mode . org-tidy-mode)
   :custom
   (org-tidy-properties-style 'fringe))
+
+(defvar rhb/notes-directory (expand-file-name "~/Notes"))
 
 (use-package org-roam
   :config
