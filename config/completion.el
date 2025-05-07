@@ -3,7 +3,8 @@
   (vertico-mode)
   (vertico-mouse-mode)
   :custom
-  (vertico-cycle t))
+  (vertico-cycle t)
+  (vertico-prompt directory))
 
 (use-package savehist
   :config
@@ -17,7 +18,7 @@
 
 (use-package marginalia
   :bind (:map minibuffer-local-map
-              ("M-A" . marginalia-cycle))
+              ("M-Z" . marginalia-cycle))
   :init
   (marginalia-mode))
 
