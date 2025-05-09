@@ -9,7 +9,10 @@
 
 (use-package dired-subtree
   :bind
-  (:map dired-mode-map ("i" . dired-subtree-toggle)))
+  (:map dired-mode-map ("i" . dired-subtree-toggle))
+
+  :custom
+  (dired-subtree-use-backgrounds nil))
 
 (use-package dired-narrow
   :bind
