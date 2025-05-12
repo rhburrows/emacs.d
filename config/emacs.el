@@ -17,6 +17,7 @@
   (xref-search-program 'ripgrep)
   (frame-resize-pixelwise t)
   (ns-pop-up-frames nil)
+  (winner-mode 1)
 
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
