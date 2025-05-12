@@ -49,10 +49,6 @@
   :config
   (which-key-mode))
 
-(use-package eldoc
-  :init
-  (global-eldoc-mode))
-
 (use-package ace-window
   :config
   (global-set-key (kbd "M-o") 'ace-window)
@@ -64,34 +60,3 @@
 
   :custom
   (devil-prompt "\U0001F608 %t"))
-
-(use-package helpful
-  :bind
-  (("C-h f" . helpful-callable)
-   ("C-h v" . helpful-variable)
-   ("C-h k" . helpful-key)
-   ("C-h x" . helpful-command)
-   ("C-c C-d" . helpful-at-point)))
-
-(use-package dashboard
-  :after nerd-icons
-
-  :config
-  (dashboard-setup-startup-hook)
-
-  :custom
-  (dashboard-startup-banner 'logo)
-  (dashboard-banner-logo-title nil)
-  (dashboard-center-content t)
-  (dashboard-set-footer nil)
-
-  (dashboard-display-icons-p t)
-  (dashboard-icon-type 'nerd-icons)
-  (dashboard-set-heading-icons t)
-  (dashboard-set-file-icons t)
-
-  (dashboard-items '((projects . 5)
-                     (bookmarks . 5)
-                     (recents . 5)
-                     (registers . 5))))
-
