@@ -16,7 +16,10 @@
     "Install Tree-sitter grammar if its absent."
     (interactive "SGrammar: ")
     (unless (treesit-language-available-p grammar)
-      (treesit-install-language-grammar grammar))))
+      (treesit-install-language-grammar grammar)))
+
+  :custom
+  (treesit-font-lock-level 4))
 
 (use-package apheleia
   :ensure t
