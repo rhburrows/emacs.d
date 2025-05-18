@@ -16,7 +16,22 @@
 
   :bind ("C-c n b" . rhb/capture-new-bib-reference))
 
+(defun rhb/get-bibliography-paths ()
+  "Return a list of bibliography paths.
+Always includes rhb/notes-directory/references.bib and any .bib files in
+rhb/notes-directory/refs/ if that directory exists."
+  (let* ((main-bib (file-name-concat rhb/notes-directory "references.bib"))
+         (refs-dir (file-name-concat rhb/notes-directory "refs"))
+         (bib-paths (list main-bib)))
+    ;; Add .bib files from refs directory if it exists
+    (when (file-directory-p refs-dir)
+      (dolist (file (directory-files refs-dir t "\\.bib$"))
+        (push file bib-paths)))
+    ;; Return the collected paths
+    (nreverse bib-paths)))
+
 (use-package citar
+  :demand t
   :hook
   (org-mode . citar-capf-setup)
 
@@ -60,9 +75,8 @@
      :padding "  "
      :tag "is:cited"))
 
-
   :custom
-  (org-cite-global-bibliography (list (file-name-concat rhb/notes-directory "references.bib")))
+  (org-cite-global-bibliography (rhb/get-bibliography-paths))
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)
