@@ -61,6 +61,13 @@
   (org-roam-directory rhb/notes-directory)
   (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db")))
 
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (org-roam-ui-sync-theme t)
+  (org-roam-ui-follow t)
+  (org-roam-ui-update-on-save t))
+
 (use-package org-remark
   :after org
   :bind (
