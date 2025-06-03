@@ -18,6 +18,7 @@
   (frame-resize-pixelwise t)
   (ns-pop-up-frames nil)
   (winner-mode 1)
+  (editorconfig-mode 1)
 
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
