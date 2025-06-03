@@ -26,10 +26,6 @@
 
   :hook (prog-mode . apheleia-mode)
 
-  :config
-  (setf (alist-get 'js-ts-mode apheleia-mode-alist)
-        '(denofmt-js))
-
   :custom
   (apheleia-mode-lighter nil))
 
