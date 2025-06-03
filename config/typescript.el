@@ -4,26 +4,66 @@
     :documentation "A custom class for deno lsp.")
 
   (cl-defmethod eglot-initialization-options ((server eglot-deno))
-    "Passes through require deno initialization options"
     (list :enable t :lint t))
-  (add-to-list 'eglot-server-programs
-               '((js-ts-mode typescript-ts-mode) . (eglot-deno "deno" "lsp"))))
+
+  (defun rhb/deno-project-p ()
+    (or (locate-dominating-file default-directory "deno.json")
+        (locate-dominating-file default-directory "deno.jsonc")))
+
+  (define-minor-mode deno-project-mode
+    "Minor mode for Deno projects."
+    :lighter " Deno"
+    (when deno-project-mode
+      (setq (alist-get 'deno-project-mode apheleia-mode-alist) '(denofmt-js))
+      (setq-local devdocs-current-doc '("deno~2" "typescript"))
+      (setq-local eglot-server-programs
+                  (list const '(js-ts-mode typescript-ts-mode) '(eglot-deno "deno" "lsp")))))
+
+  (define-minor-mode node-project-mode
+    "Minor mode for Node projects."
+    :lighter " Node"
+    (when node-project-mode
+      (setq-local devdocs-current-doc '("node" "typescript"))
+      (setq-local eglot-server-programs
+                  (list (cons '(js-ts-mode typescript-ts-mode) '("typescript-language-server" "--stdio"))))))
+
+  (defun rhb/setup-ts-project ()
+    (cond
+     ((rhb/deno-project-p)
+      (deno-project-mode 1))
+     (t
+      (node-project-mode 1)))))
 
 (use-package typescript-ts-mode
   :after eglot
 
-  :hook ((typescript-ts-mode-hook . eglot-ensure)
-         (typescript-ts-mode-hook . (lambda ()
-                                      (setq-local devdocs-current-doc '("typescript" "deno~2")))))
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . typescript-ts-mode))
+
+  :hook ((typescript-ts-mode . rhb/setup-ts-project)
+         (typescript-ts-mode . eglot-ensure))
 
   :config
   (rhb/treesit-install-grammar 'javascript)
   (rhb/treesit-install-grammar 'typescript)
-  (rhb/treesit-install-grammar 'tsx))
+  (rhb/treesit-install-grammar 'tsx)
+  )
+
+(use-package flymake-eslint-local
+  :ensure nil
+  :straight nil
+  :load-path site-lisp-dir
+  :config
+  (defun rhb/enable-eslint-flymake ()
+    "Enable Flymake diagnostics using ESLint in the current buffer."
+    (when (derived-mode-p 'typescript-mode 'typescript-ts-mode)
+      (add-hook 'flymake-diagnostic-functions (flymake-eslint-local-backend))))
+
+  :hook ((eglot-managed-mode . rhb/enable-eslint-flymake)))
 
 (use-package emacs
   :ensure t
   :config
   (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
   (add-to-list 'major-mode-remap-alist '(js-mode . js-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(typescript . typescript-ts-mode)))
+  (add-to-list 'major-mode-remap-alist '(typescript-mode . typescript-ts-mode)))
