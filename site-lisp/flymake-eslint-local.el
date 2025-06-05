@@ -41,7 +41,6 @@
       default-directory))
 
 (defun flymake-eslint-local--parse-diagnostics (source)
-  "Parse ESLint JSON output in current buffer and return Flymake diagnostics for SOURCE."
   (goto-char (point-min))
   (let ((diags '()))
     (condition-case err
@@ -69,44 +68,43 @@
                       (push (flymake-make-diagnostic source beg end type message)
                             diags))))))))
       (error
-       (message "[flymake-eslint-local]: JSON parse error: %s" err)))
+       (flymake-log :error "JSON parse error: %s" err)))
     diags))
 
-(defun flymake-eslint-local-backend ()
-  "Return a deferred Flymake checker function for ESLint (Emacs 30+)."
-  (let ((source (current-buffer)))
-    (lambda (report-fn)
-      (message "[flymake-eslint-local] checker invoked in buffer: %s" (buffer-name))
+(defun flymake-eslint-local--flymake (report-fn &rest _args)
+  (let* ((source (current-buffer))
+         (eslint (flymake-eslint-local--eslint-executable))
+         (args (append '("--format" "json")
+                       flymake-eslint-local-extra-args
+                       (list (file-truename (buffer-file-name)))))
+         (default-directory (file-truename (flymake-eslint-local--project-root))))
+    (unless (executable-find eslint)
+      (error "Cannot find eslint"))
 
-      (when (process-live-p flymake-eslint-local--proc)
-        (kill-process flymake-eslint-local--proc))
+    (when (process-live-p flymake-eslint-local--proc)
+      (kill-process flymake-eslint-local--proc))
 
-      (let* ((eslint (flymake-eslint-local--eslint-executable))
-             (args (append '("--format" "json")
-                           flymake-eslint-local-extra-args
-                           (list (file-truename (buffer-file-name)))))
-             (proc-buf (generate-new-buffer "*eslint-flymake*")))
-        (message "[flymake-eslint-local] running: %s %s" eslint (string-join args " "))
-        (setq default-directory (file-truename (flymake-eslint-local--project-root)))
-        (setq flymake-eslint-local--proc
-              (make-process
-               :name "eslint-flymake"
-               :buffer proc-buf
-               :command (cons eslint args)
-               :noquery t
-               :sentinel
-               (lambda (_proc _event)
-                 (when (eq (process-status flymake-eslint-local--proc) 'exit)
-                   (message "[flymake-eslint-local] process exited")
-                   (when (buffer-live-p proc-buf)
-                     (with-current-buffer proc-buf
-                       (let ((diags (flymake-eslint-local--parse-diagnostics source)))
-                         (message "[flymake-eslint] parsed %d diagnostics" (length diags))
-                         (funcall report-fn diags)))
-                     (kill-buffer proc-buf))))))
-        (lambda ()
-          (message "[flymake-eslint-local] cleanup")
-          (when (process-live-p flymake-eslint-local--proc)
-            (kill-process flymake-eslint-local--proc)))))))
+    (save-restriction
+      (widen)
+
+      (setq flymake-eslint-local--proc
+            (make-process
+             :name "eslint-flymake"
+             :buffer (generate-new-buffer "*flymake-eslint-local*")
+             :command (cons eslint args)
+             :noquery t
+             :sentinel
+             (lambda (proc _event)
+               (when (memq (process-status proc) '(exit signal))
+                 (unwind-protect
+                     (if (with-current-buffer source (eq proc flymake-eslint-local--proc))
+                         (with-current-buffer (process-buffer proc)
+                           (let ((diags (flymake-eslint-local--parse-diagnostics source)))
+                             (funcall report-fn diags)))
+                       )
+                   (kill-buffer (process-buffer proc))))))))))
+
+(defun flymake-eslint-local-setup ()
+  (add-hook 'flymake-diagnostic-functions 'flymake-eslint-local--flymake nil t))
 
 (provide 'flymake-eslint-local)

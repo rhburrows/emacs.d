@@ -57,7 +57,7 @@
   (defun rhb/enable-eslint-flymake ()
     "Enable Flymake diagnostics using ESLint in the current buffer."
     (when (derived-mode-p 'typescript-mode 'typescript-ts-mode)
-      (add-hook 'flymake-diagnostic-functions (flymake-eslint-local-backend))))
+      (flymake-eslint-local-setup)))
 
   :hook ((eglot-managed-mode . rhb/enable-eslint-flymake)))
 
