@@ -50,3 +50,13 @@
   :bind
   ((:map prog-mode-map
          ("C-x `" . flymake-goto-next-error))))
+
+(use-package eglot
+  :custom
+  (eglot-events-buffer-config '(:size 0 :format short))
+
+  :bind
+  ((:map eglot-mode-map
+         ("C-x c ." . eglot-code-action-quickfix)
+         ("C-x c r" . eglot-rename)
+         ("C-x c o" . eglot-code-action-organize-imports))))
