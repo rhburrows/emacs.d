@@ -59,6 +59,7 @@
 
   :custom
   (org-roam-directory rhb/notes-directory)
+  (org-roam-dailies-directory (file-name-concat rhb/notes-directory "notebook"))
   (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db")))
 
 (use-package org-roam-ui
