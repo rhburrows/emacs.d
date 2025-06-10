@@ -64,7 +64,7 @@
 
 (use-package org-roam-ui
   :after org-roam
-  :config
+  :custom
   (org-roam-ui-sync-theme t)
   (org-roam-ui-follow t)
   (org-roam-ui-update-on-save t))
