@@ -51,16 +51,34 @@
         (load-file template-file)))
 
   :bind (
-         ("C-c n c" . org-roam-capture)
-         ("C-c n f" . org-roam-node-find)
+         ("C-c n c" . org-roam-dailies-capture-today)
+         ("C-c n d" . org-roam-dailies-goto-date)
          :map org-mode-map
-         ("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n t" . org-roam-buffer-toggle)
          ("C-c n i" . org-roam-node-insert))
 
   :custom
   (org-roam-directory rhb/notes-directory)
   (org-roam-dailies-directory (file-name-concat rhb/notes-directory "notebook"))
-  (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db")))
+  (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db"))
+  (org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag))))
+
+(use-package consult-org-roam
+  :bind(
+        ("C-c n f" . consult-org-roam-file-find)
+        ("C-c n s" . consult-org-roam-search)
+        :map org-roam-mode-map
+        ("C-c n b" . consult-org-roam-backlinks)
+        ("C-c n l" . consult-org-roam-forward-links)
+        )
+
+  :config
+  (consult-org-roam-mode 1)
+  (consult-customize consult-org-roam-forward-links :preview-key "M-.")
+
+  :custom
+  (consult-org-roam-grep-func #'consult-ripgrep)
+  (consult-org-roam-buffer-narrow-key ?r))
 
 (use-package org-roam-ui
   :after org-roam
