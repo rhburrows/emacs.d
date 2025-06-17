@@ -5,4 +5,4 @@
 
 (use-package zig-mode
   :after eglot
-  :hook (zig-mode-hook . eglot-ensure))
+  :hook (zig-mode . eglot-ensure))

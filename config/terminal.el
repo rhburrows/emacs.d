@@ -1,6 +1,6 @@
 (use-package vterm
-  :config
-  (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode 0))))
+  :hook
+  ((vterm-mode . (lambda () (display-line-numbers-mode 0)))))
 
 (use-package vterm-toggle
   :after (vterm)

@@ -5,9 +5,9 @@
 
 (use-package php-mode
   :after eglot
-  :hook ((php-mode-hook . eglot-ensure)
-         (php-mode-hook . (lambda ()
-                            (setq-local devdocs-current-docs '("php")))))
+  :hook ((php-mode . eglot-ensure)
+         (php-mode . (lambda ()
+                       (setq-local devdocs-current-docs '("php")))))
 
   :custom
   (php-mode-coding-style 'psr2))

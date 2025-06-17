@@ -32,9 +32,9 @@
          )
 
   :hook
-  (eshell-mode-hook . (lambda ()
-                        (setq-local imenu-generic-expression
-                                    '(("Prompt" " $ \\(.*\\)" 1)))))
+  (eshell-mode . (lambda ()
+                   (setq-local imenu-generic-expression
+                               '(("Prompt" " $ \\(.*\\)" 1)))))
 
   :custom
   (eshell-highlight-prompt nil)

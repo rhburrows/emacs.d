@@ -20,14 +20,14 @@
   (nerd-icons-font-family "FiraCode Nerd Font Mono"))
 
 (use-package nerd-icons-dired
-  :config
-  (add-hook 'dired-mode-hook #'nerd-icons-dired-mode))
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 
 (use-package nerd-icons-completion
   :after marginalia
+  :hook (marginalia-mode . nerd-icons-completion-marginalia-setup)
   :config
-  (nerd-icons-completion-mode)
-  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+  (nerd-icons-completion-mode))
 
 (use-package nerd-icons-corfu
   :after corfu
@@ -66,10 +66,10 @@
 
 ;; But hide the modeline in some modes
 (use-package hide-mode-line
-  :config
-  (add-hook 'eshell-mode-hook #'hide-mode-line-mode)
-  (add-hook 'vterm-mode-hook #'hide-mode-line-mode)
-  (add-hook 'compilation-mode-hook #'hide-mode-line-mode))
+  :hook
+  ((eshell-mode . hide-mode-line-mode)
+   (vterm-mode . hide-mode-line-mode)
+   (compilation-mode . hide-mode-line-mode)))
 
 (defvar rhb/mode-line-exclude-modes
   '(devil-mode
