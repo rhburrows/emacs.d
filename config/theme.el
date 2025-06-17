@@ -3,8 +3,8 @@
   (defun rhb/apply-theme (appearance)
     "Load theme, taking current system APPEARANCE into consideration."
     (pcase appearance
-      ('light (setq catppuccin-flavor 'latte))
-      ('dark (setq catppuccin-flavor 'macchiato)))
+      ('light (setopt catppuccin-flavor 'latte))
+      ('dark (setopt catppuccin-flavor 'macchiato)))
     (catppuccin-reload))
 
   :custom-face

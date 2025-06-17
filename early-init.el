@@ -1,4 +1,4 @@
-(setq package-enable-at-startup nil)
+(setopt package-enable-at-startup nil)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))

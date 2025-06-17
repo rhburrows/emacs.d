@@ -24,8 +24,8 @@
        'rear-nonsticky '(font-lock-face read-only))))
 
   ;; For some reason I can't get setting this value to work via the `:custom` section below'
-  (setq eshell-visual-commands '("top" "htop" "less" "more"
-                                 "opctl"))
+  (setopt eshell-visual-commands '("top" "htop" "less" "more"
+                                   "opctl"))
 
   :bind (
          ("C-c e" . eshell)
