@@ -23,6 +23,9 @@
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
 
+  :hook
+  (text-mode . flyspell-mode)
+
   :config
   (require 'whitespace)
   (defalias 'yes-or-no-p 'y-or-n-p)
@@ -80,3 +83,8 @@ are defining or executing a macro."
 
   :custom
   (devil-prompt "\U0001F608 %t"))
+
+(use-package flyspell-correct
+  :after flyspell
+  :bind
+  (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))

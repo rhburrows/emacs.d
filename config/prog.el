@@ -47,6 +47,8 @@
 
 (use-package prog-mode
   :straight (compile :type built-in)
+  :hook
+  (prog-mode . flyspell-prog-mode)
   :bind
   ((:map prog-mode-map
          ("C-x `" . flymake-goto-next-error))))
