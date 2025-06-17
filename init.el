@@ -83,6 +83,10 @@
 ;; Allow for machine-specific overrides (e.g. for work machine configurations)
 (when (file-exists-p (expand-file-name "~/.local.el"))
   (load-file (expand-file-name "~/.local.el")))
+;; Also store custom settings in the local machine only. Use proper config for settings to share
+(setq custom-file (expand-file-name (file-name-concat user-init-dir "custom.el")))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; Start things off in eshell
 (eshell)

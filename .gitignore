@@ -23,3 +23,5 @@ auto-save-list
 /debug-adapters/
 /.org-roam.db
 /.org-id-locations
+/recentf
+/custom.el
