@@ -75,6 +75,15 @@
        ((string-match-p "^@\\.*" roam-ref) (citar-open-entry (substring roam-ref 1)))
        (t (message "ROAM_REF '%s' is neither a URL nor a Citar reference." roam-ref)))))
 
+  :hook
+  (org-mode . (lambda ()
+                (setq-local time-stamp-active t
+                            time-stamp-line-limit 25
+                            time-stamp-start "#\\+last_modified:[ \t]*"
+                            time-stamp-end "$"
+                            time-stamp-format "\[%Y-%m-%d %a %H:%M\]")
+                (add-hook 'before-save-hook 'time-stamp nil 'local)))
+
   :custom
   (org-roam-directory rhb/notes-directory)
   (org-roam-dailies-directory (file-name-concat rhb/notes-directory "inbx"))
