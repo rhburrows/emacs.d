@@ -67,7 +67,7 @@
   (org-roam-directory rhb/notes-directory)
   (org-roam-dailies-directory (file-name-concat rhb/notes-directory "notebook"))
   (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db"))
-  (org-roam-node-display-template (concat "${dir:15} ${title:*} " (propertize "${tags:10}" 'face 'org-tag))))
+  (org-roam-node-display-template (concat "${dir:15} ${title:*} " (propertize "${tags:50}" 'face 'org-tag))))
 
 (use-package consult-org-roam
   :bind(
