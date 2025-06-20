@@ -57,11 +57,17 @@
          ("C-c n t" . org-roam-buffer-toggle)
          ("C-c n i" . org-roam-node-insert))
 
+  :init
+  (cl-defmethod org-roam-node-dir (node)
+    (condition-case nil
+        (directory-file-name (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory)))
+      (error nil)))
+
   :custom
   (org-roam-directory rhb/notes-directory)
   (org-roam-dailies-directory (file-name-concat rhb/notes-directory "notebook"))
   (org-roam-db-location (file-name-concat user-init-dir ".org-roam.db"))
-  (org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag))))
+  (org-roam-node-display-template (concat "${dir:15} ${title:*} " (propertize "${tags:10}" 'face 'org-tag))))
 
 (use-package consult-org-roam
   :bind(
