@@ -1,14 +1,16 @@
 (use-package rust-mode
-  :config
+  :init
   (rhb/treesit-install-grammar 'rust)
 
   :custom
-  (rust-mode-treesiter-derive t))
+  (rust-mode-treesitter-derive t)
 
-(use-package rustic
-  :after (rust-mode)
+  :hook
+  (rust-mode . eglot-ensure)
 
-  :custom
-  (rustic-cargo-use-last-stored-arguments t)
-  (rustic-lsp-client 'eglot)
-  (rustic-analyzer-command '("rustup" "run" "stable" "rust-analyzer")))
+  :config
+  (add-to-list 'eglot-server-programs
+               '((rust-ts-mode rust-mode) .
+                 ("rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
+
+
