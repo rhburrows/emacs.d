@@ -47,7 +47,7 @@
   :config
   (org-roam-db-autosync-mode)
   (let ((template-file (file-name-concat rhb/notes-directory "templates/capture.el")))
-    (if (f-exists? template-file)
+    (if (file-exists-p template-file)
         (load-file template-file)))
 
   :bind (
