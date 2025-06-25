@@ -7,13 +7,19 @@
       ('dark (setopt catppuccin-flavor 'macchiato)))
     (catppuccin-reload))
 
+  (defun rhb/apply-frame-settings (frame)
+    "Apply desired settings to FRAME."
+    (with-selected-frame frame
+      (set-face-attribute 'default frame :family "Fira Code" :height 140)))
+
   :custom-face
   (default ((t (:family "Fira Code" :height 140))))
 
   :config
   (load-theme 'catppuccin :no-confirm)
   (rhb/apply-theme ns-system-appearance)
-  (add-hook 'ns-system-appearance-change-functions 'rhb/apply-theme))
+  (add-hook 'ns-system-appearance-change-functions 'rhb/apply-theme)
+  (add-hook 'after-make-frame-functions 'rhb/apply-frame-settings))
 
 (use-package nerd-icons
   :custom
