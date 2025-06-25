@@ -62,3 +62,10 @@
          ("C-x c ." . eglot-code-action-quickfix)
          ("C-x c r" . eglot-rename)
          ("C-x c o" . eglot-code-action-organize-imports))))
+
+(use-package mise
+  :hook
+  (prog-mode . mise-mode)
+
+  :custom
+  (mise-update-on-eshell-directory-change))
