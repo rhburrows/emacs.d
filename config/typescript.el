@@ -14,10 +14,9 @@
     "Minor mode for Deno projects."
     :lighter " Deno"
     (when deno-project-mode
-      (setq (alist-get 'deno-project-mode apheleia-mode-alist) '(denofmt-js))
       (setq-local devdocs-current-doc '("deno~2" "typescript"))
       (setq-local eglot-server-programs
-                  (list const '(js-ts-mode typescript-ts-mode) '(eglot-deno "deno" "lsp")))))
+                  (list (cons '(js-ts-mode typescript-ts-mode) '(eglot-deno "deno" "lsp"))))))
 
   (define-minor-mode node-project-mode
     "Minor mode for Node projects."
@@ -34,6 +33,20 @@
      (t
       (node-project-mode 1)))))
 
+(use-package js-ts-mode
+  :straight nil
+  :after eglot
+
+  :mode (("\\.js\\'" . js-ts-mode)
+         ("\\.jsx\\'" . js-ts-mode))
+
+  :hook ((js-ts-mode . rhb/setup-ts-project)
+         (js-ts-mode . eglot-ensure))
+
+  :config
+  (setf (alist-get 'deno-project-mode apheleia-formatters nil nil t) '(denofmt-js))
+  (rhb/treesit-install-grammar 'javascript))
+
 (use-package typescript-ts-mode
   :after eglot
 
@@ -44,10 +57,8 @@
          (typescript-ts-mode . eglot-ensure))
 
   :config
-  (rhb/treesit-install-grammar 'javascript)
   (rhb/treesit-install-grammar 'typescript)
-  (rhb/treesit-install-grammar 'tsx)
-  )
+  (rhb/treesit-install-grammar 'tsx))
 
 (use-package flymake-eslint-local
   :ensure nil
