@@ -71,6 +71,7 @@
 ;; Language specific configurations
 (load-config-file "go.el")
 (load-config-file "java.el")
+(load-config-file "json.el")
 (load-config-file "markdown.el")
 (load-config-file "neon.el")
 (load-config-file "php.el")

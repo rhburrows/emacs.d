@@ -79,7 +79,7 @@ are defining or executing a macro."
 
 (use-package devil
   :config
-  (global-devil-mode)
+  (global-devil-mode t)
 
   :custom
   (devil-prompt "\U0001F608 %t"))
