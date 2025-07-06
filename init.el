@@ -43,7 +43,7 @@
   (interactive "f")
   "Load a file in the current user's configuration directory"
   (load-file (expand-file-name
-		          (file-name-concat user-init-dir "config" file))))
+	      (file-name-concat user-init-dir "config" file))))
 
 (use-package gcmh
   :demand
@@ -61,7 +61,6 @@
 (load-config-file "prog.el")
 (load-config-file "undo.el")
 (load-config-file "terminal.el")
-(load-config-file "eshell.el")
 (load-config-file "docker.el")
 (load-config-file "ai.el")
 (load-config-file "verb.el")
