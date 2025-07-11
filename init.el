@@ -43,7 +43,7 @@
   (interactive "f")
   "Load a file in the current user's configuration directory"
   (load-file (expand-file-name
-	      (file-name-concat user-init-dir "config" file))))
+	            (file-name-concat user-init-dir "config" file))))
 
 (use-package gcmh
   :demand
@@ -69,6 +69,7 @@
 
 ;; Language specific configurations
 (load-config-file "go.el")
+(load-config-file "graphviz.el")
 (load-config-file "java.el")
 (load-config-file "json.el")
 (load-config-file "markdown.el")
