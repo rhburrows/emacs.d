@@ -6,9 +6,7 @@
   (rust-mode-treesitter-derive t)
 
   :hook
-  ((rust-mode . eglot-ensure)
-   (rust-mode . (lambda ()
-                  (setq-local corfu-auto t))))
+  (rust-mode . eglot-ensure)
 
   :config
   (add-to-list 'eglot-server-programs

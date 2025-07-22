@@ -60,18 +60,6 @@
   (rhb/treesit-install-grammar 'typescript)
   (rhb/treesit-install-grammar 'tsx))
 
-(use-package flymake-eslint-local
-  :ensure nil
-  :straight nil
-  :load-path site-lisp-dir
-  :config
-  (defun rhb/enable-eslint-flymake ()
-    "Enable Flymake diagnostics using ESLint in the current buffer."
-    (when (derived-mode-p 'typescript-mode 'typescript-ts-mode)
-      (flymake-eslint-local-setup)))
-
-  :hook ((eglot-managed-mode . rhb/enable-eslint-flymake)))
-
 (use-package emacs
   :ensure t
   :config

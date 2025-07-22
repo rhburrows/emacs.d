@@ -1,3 +1,8 @@
+(use-package emacs
+  :custom
+  (tab-always-indent 'complete)
+  (completion-styles '(basic initials substring)))
+
 (use-package vertico
   :config
   (vertico-mode)

@@ -1,14 +1,24 @@
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  :custom
-  (flymake-show-diagnostics-at-end-of-line 'fancy))
+  :init (global-flycheck-mode))
 
 (use-package flycheck-eglot
   :ensure t
   :after (flycheck eglot)
-  :custom
-  (global-flycheck-mode t))
+  :config
+  (global-flycheck-eglot-mode 1))
+
+(use-package flycheck-inline
+  :ensure t
+  :after flycheck
+  :hook
+  (flycheck-mode-hook . flycheck-inline-mode))
+
+(use-package flycheck-status-emoji
+  :after flycheck
+  :config
+  (flycheck-status-emoji-mode 1))
+
 
 (use-package consult-flycheck
   :after (flycheck consult))
