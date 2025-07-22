@@ -29,9 +29,17 @@ are defining or executing a macro."
                   executing-kbd-macro)
         (funcall-interactively quit))))
 
+  (defvar-keymap scale-text-keymap
+    :repeat t
+    "+" #'text-scale-increase
+    "-" #'text-scale-decrease)
+
+  :bind (("C-c +" . text-scale-increase)
+         ("C-c -" . text-scale-decrease))
+
   :hook
   (text-mode . flyspell-mode)
-  
+
   :custom
   (jit-lock-defer-time 0.05)
   (read-process-output-max (* 1024 1024))
