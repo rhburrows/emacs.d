@@ -8,17 +8,14 @@
   :config
   (global-flycheck-eglot-mode 1))
 
-(use-package flycheck-inline
-  :ensure t
-  :after flycheck
+(use-package flycheck-rust
   :hook
-  (flycheck-mode-hook . flycheck-inline-mode))
+  (flycheck-mode . flycheck-rust-setup))
 
 (use-package flycheck-status-emoji
   :after flycheck
   :config
   (flycheck-status-emoji-mode 1))
-
 
 (use-package consult-flycheck
   :after (flycheck consult))
