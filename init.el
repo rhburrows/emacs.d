@@ -33,6 +33,7 @@
 
 ;; Force early loading of org-mode so there isn't a version mismatch later
 (straight-use-package 'org)
+(straight-use-package 'project)
 
 ;; Ideally this would be determined dynamically based user-emacs-directory but that isn't being set correctly at startup
 (defconst user-init-dir "~/.emacs.d/")
@@ -58,7 +59,6 @@
 (load-config-file "completion.el")
 (load-config-file "dired.el")
 (load-config-file "diff.el")
-(load-config-file "flycheck.el")
 (load-config-file "prog.el")
 (load-config-file "undo.el")
 (load-config-file "terminal.el")

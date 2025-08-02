@@ -1,6 +1,8 @@
 (use-package eldoc
   :init
-  (global-eldoc-mode))
+  (global-eldoc-mode)
+  :custom
+  (eldoc-echo-area-prefer-doc-buffer t))
 
 (use-package eldoc-box
   :after eldoc

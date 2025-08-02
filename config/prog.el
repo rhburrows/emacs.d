@@ -48,14 +48,12 @@
 (use-package prog-mode
   :straight (compile :type built-in)
   :hook
-  (prog-mode . flyspell-prog-mode)
-  :bind
-  ((:map prog-mode-map
-         ("C-x `" . flymake-goto-next-error))))
+  (prog-mode . flyspell-prog-mode))
 
 (use-package eglot
   :custom
   (eglot-events-buffer-config '(:size 0 :format short))
+  (eglot-report-progress nil)
 
   :bind
   ((:map eglot-mode-map
@@ -66,6 +64,17 @@
 (use-package consult-eglot
   :after (consult eglot)
   :bind (("M-g s" . consult-eglot-symbols)))
+
+(use-package flymake
+  :custom
+  (flymake-show-diagnostics-at-end-of-line nil)
+  (flymake-suppress-zero-counters t)
+
+  :config
+  (custom-set-faces
+   '(flymake-error ((t (:underline (:color "#ff6b6b" :style wave)))))
+   '(flymake-warning ((t (:underline (:color "#feca57" :style wave)))))
+   '(flymake-note ((t (:underline (:color "#48dbfb" :style wave)))))))
 
 (use-package consult-eglot-embark
   :after (consult-eglot embark))

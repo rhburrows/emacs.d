@@ -57,11 +57,11 @@
          ("C-s" . consult-line)
          ("M-g i" . consult-imenu)
          ("M-g I" .  consult-imenu-multi)
-         ("M-g f" . consult-flycheck)
+         ("M-g f" . consult-flymake)
          ("M-s r" . consult-ripgrep)))
 
 (consult-customize
- consult-line consult-imenu consult-imenu-multi consult-flycheck consult-ripgrep
+ consult-line consult-imenu consult-imenu-multi consult-flymake consult-ripgrep
  :keymap (let ((map (make-sparse-keymap)))
            (define-key map (kbd "M-e") #'embark-export)
            map)
