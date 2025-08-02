@@ -63,6 +63,13 @@
          ("C-x c r" . eglot-rename)
          ("C-x c o" . eglot-code-action-organize-imports))))
 
+(use-package consult-eglot
+  :after (consult eglot)
+  :bind (("M-g s" . consult-eglot-symbols)))
+
+(use-package consult-eglot-embark
+  :after (consult-eglot embark))
+
 (use-package mise
   :hook
   (prog-mode . mise-mode)
