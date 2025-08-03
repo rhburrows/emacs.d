@@ -66,7 +66,6 @@
 (load-config-file "ai.el")
 (load-config-file "verb.el")
 (load-config-file "org.el")
-(load-config-file "bib.el") ; must be after org
 
 ;; Language specific configurations
 (load-config-file "go.el")
