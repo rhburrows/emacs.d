@@ -74,6 +74,7 @@
 (use-package hide-mode-line
   :hook
   ((eshell-mode . hide-mode-line-mode)
+   (eat-mode . hide-mode-line-mode)
    (vterm-mode . hide-mode-line-mode)
    (compilation-mode . hide-mode-line-mode)))
 
