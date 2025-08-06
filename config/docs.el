@@ -20,3 +20,7 @@
 
 (use-package devdocs
   :bind (( "C-c d" . devdocs-lookup)))
+
+(use-package rfc-mode
+  :custom
+  (rfc-mode-directory (expand-file-name "~/.rfc")))
