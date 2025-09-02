@@ -24,7 +24,7 @@
     (when node-project-mode
       (setq-local devdocs-current-doc '("node" "typescript"))
       (setq-local eglot-server-programs
-                  (list (cons '(js-ts-mode typescript-ts-mode) '("typescript-language-server" "--stdio"))))))
+                  (list (cons '(js-ts-mode typescript-ts-mode) '("vtsls" "--stdio"))))))
 
   (defun rhb/setup-ts-project ()
     (cond
