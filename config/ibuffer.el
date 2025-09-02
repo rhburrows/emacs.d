@@ -10,7 +10,7 @@
                            (derived-mode . prog-mode)
                            (not (name . "^\\*scratch\\*$"))))
            ("Dired" (mode . dired-mode))
-           ("Magit" (name . "^\\*magit"))
+           ("Magit" (name . "^\\magit"))
            ("Emacs" (or
                      (name . "^\\*scratch\\*$")
                      (name . "^\\*Messages\\*$")
