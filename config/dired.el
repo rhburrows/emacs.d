@@ -2,10 +2,11 @@
   :defer t
   :straight (compile :type built-in)
   :custom
-  (dired-auto-revert-buffer t)
   (dired-recursive-copies 'always)
   (dired-use-ls-dired nil)
-  (dired-vc-rename-file t))
+  (dired-vc-rename-file t)
+  :hook
+  (dired-mode . (lambda () (auto-revert-mode -1))))
 
 (use-package dired-subtree
   :bind
