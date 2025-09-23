@@ -1,3 +1,5 @@
+(use-package vterm)
+
 (use-package eat
   :straight (:files ("*.el" ("term" "term/*.el") "*.texi"
                      "*.ti" ("terminfo/e" "terminfo/e/*")
@@ -21,15 +23,15 @@
            (x-stat eshell-last-command-status)
            (git-chunk
             (if ref
-		(format "%s%s%s "
-			(propertize (if stat "[" "(") 'font-lock-face (list :foreground (if stat "red" "green")))
-			(propertize ref 'font-lock-face '(:foreground "#aaaa00"))
-			(propertize (if stat "]" ")") 'font-lock-face (list :foreground (if stat "red" "green"))))
+		            (format "%s%s%s "
+			                  (propertize (if stat "[" "(") 'font-lock-face (list :foreground (if stat "red" "green")))
+			                  (propertize ref 'font-lock-face '(:foreground "#aaaa00"))
+			                  (propertize (if stat "]" ")") 'font-lock-face (list :foreground (if stat "red" "green"))))
               "")))
       (propertize
        (format "%s %s %s$ "
                (if (< 0 x-stat) (format (propertize "!%s" 'font-lock-face '(:foreground "red")) x-stat)
-		 (propertize "➤" 'font-lock-face (list :foreground (if (< 0 x-stat) "red" "green"))))
+		             (propertize "➤" 'font-lock-face (list :foreground (if (< 0 x-stat) "red" "green"))))
                (propertize cwd 'font-lock-face '(:foreground "#45babf"))
                git-chunk)
        'front-sticky   '(font-lock-face read-only)

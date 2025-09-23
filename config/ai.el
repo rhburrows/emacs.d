@@ -21,4 +21,4 @@
   (claude-code-ide-emacs-tools-setup)
 
   :custom
-  (claude-code-ide-terminal-backend 'eat))
+  (claude-code-ide-terminal-backend 'vterm))
