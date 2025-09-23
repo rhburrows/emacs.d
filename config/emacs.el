@@ -75,6 +75,7 @@ are defining or executing a macro."
   (electric-pair-mode t)
   (show-paren-mode t)
   (global-auto-revert-mode t)
+  (global-auto-revert-non-file-buffers nil)
   (repeat-mode t)
   (redisplay-skip-fontification-on-input t)
   (inhibit-compacting-font-caches t)

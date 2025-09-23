@@ -4,9 +4,7 @@
   :custom
   (dired-recursive-copies 'always)
   (dired-use-ls-dired nil)
-  (dired-vc-rename-file t)
-  :hook
-  (dired-mode . (lambda () (auto-revert-mode -1))))
+  (dired-vc-rename-file t))
 
 (use-package dired-subtree
   :bind
