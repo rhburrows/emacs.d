@@ -81,8 +81,9 @@
   :after (consult-eglot embark))
 
 (use-package mise
-  :hook
-  (prog-mode . mise-mode)
+  :hook (
+         (prog-mode . mise-mode)
+         (eshell-mode . mise-mode))
 
   :custom
-  (mise-update-on-eshell-directory-change))
+  (mise-update-on-eshell-directory-change t))
