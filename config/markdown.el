@@ -1,6 +1,4 @@
-(use-package markdown-mode
-  :mode
-  ("\\.md\\'" . gfm-mode)
+(use-package markdown-ts-mode
+  :straight (:type built-in)
 
-  :custom
-  (markdown-enable-highlighting-syntax t))
+  :mode (("\\.md\\'" . markdown-ts-mode)))
