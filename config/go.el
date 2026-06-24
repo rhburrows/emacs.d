@@ -1,8 +1,4 @@
 (use-package go-ts-mode
-  :config
-  (rhb/treesit-install-grammar 'go)
-  (rhb/treesit-install-grammar 'gomod)
-
   :mode (("\\.go\\'" . go-ts-mode)
          ("/go\\.mod\\'" . go-mod-ts-mode))
 

@@ -1,5 +1,5 @@
 ;; This is the minimum major Emacs version I've testing this config on
-(defconst minimum-major-emacs-version 30)
+(defconst minimum-major-emacs-version 31)
 
 (when (< emacs-major-version minimum-major-emacs-version)
   (warn (concat "Emacs version is lower than the minimum expected of " minimum-major-emacs-version)))
