@@ -28,5 +28,6 @@
 
   :custom
   (ibuffer-expert t)
+  (ibuffer-human-readable-size t)
   (ibuffer-default-sorting-mode 'recency)
   (ibuffer-show-empty-filter-groups nil))

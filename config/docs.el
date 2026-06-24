@@ -2,6 +2,7 @@
   :init
   (global-eldoc-mode)
   :custom
+  (eldoc-help-at-pt t)
   (eldoc-echo-area-prefer-doc-buffer t))
 
 (use-package eldoc-box
