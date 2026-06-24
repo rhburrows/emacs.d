@@ -17,7 +17,6 @@
   :hook ((java-ts-mode . eglot-ensure))
 
   :config
-  (rhb/treesit-install-grammar 'java)
   (add-to-list 'eglot-server-programs
                '(java-mode . (lambda (i p)
                                (list "jdtls"

@@ -44,8 +44,7 @@
          (js-ts-mode . eglot-ensure))
 
   :config
-  (setf (alist-get 'deno-project-mode apheleia-formatters nil nil t) '(denofmt-js))
-  (rhb/treesit-install-grammar 'javascript))
+  (setf (alist-get 'deno-project-mode apheleia-formatters nil nil t) '(denofmt-js)))
 
 (use-package typescript-ts-mode
   :after eglot
@@ -54,11 +53,7 @@
          ("\\.tsx\\'" . typescript-ts-mode))
 
   :hook ((typescript-ts-mode . rhb/setup-ts-project)
-         (typescript-ts-mode . eglot-ensure))
-
-  :config
-  (rhb/treesit-install-grammar 'typescript)
-  (rhb/treesit-install-grammar 'tsx))
+         (typescript-ts-mode . eglot-ensure)))
 
 (use-package emacs
   :ensure t

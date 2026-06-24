@@ -1,7 +1,4 @@
 (use-package rust-mode
-  :init
-  (rhb/treesit-install-grammar 'rust)
-
   :custom
   (rust-mode-treesitter-derive t)
 
