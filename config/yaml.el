@@ -1,6 +1,4 @@
 (use-package yaml-ts-mode
-  :init
-  (rhb/treesit-install-grammar 'yaml)
   :mode "\\.ya?ml\\'")
 
 (use-package yaml-pro

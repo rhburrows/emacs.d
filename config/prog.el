@@ -1,23 +1,5 @@
 (use-package treesit
   :straight (:type built-in)
-  :init
-  (setq treesit-language-source-alist
-        '((dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile" "v0.2.0"))
-          (go . ("https://github.com/tree-sitter/tree-sitter-go" "v0.23.4"))
-          (gomod . ("https://github.com/camdencheek/tree-sitter-gomod" "v1.1.0"))
-          (java . ("https://github.com/tree-sitter/tree-sitter-java" "v0.23.5"))
-          (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.23.1"))
-          (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.24.8"))
-          (rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.21.2"))
-          (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "tsx/src"))
-          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "typescript/src"))
-          (yaml . ("https://github.com/tree-sitter-grammars/tree-sitter-yaml" "v0.7.0"))))
-
-  (defun rhb/treesit-install-grammar (grammar)
-    "Install Tree-sitter grammar if its absent."
-    (interactive "SGrammar: ")
-    (unless (treesit-language-available-p grammar)
-      (treesit-install-language-grammar grammar)))
 
   :custom
   (treesit-font-lock-level 4))
