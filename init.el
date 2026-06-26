@@ -40,7 +40,6 @@
 ;; Ideally this would be determined dynamically based user-emacs-directory but that isn't being set correctly at startup
 (defconst user-init-dir "~/.emacs.d/")
 (defconst site-lisp-dir (expand-file-name (concat user-init-dir "site-lisp/")))
-(add-to-list 'load-path site-lisp-dir)
 
 (defun load-config-file (file)
   (interactive "f")
