@@ -101,6 +101,13 @@ are defining or executing a macro."
   :custom
   (devil-prompt "\U0001F608 %t"))
 
+(use-package flyspell
+  :straight (:type built-in)
+
+  :custom
+  (ispell-program-name "hunspell")
+  (ispell-really-hunspell t))
+
 (use-package flyspell-correct
   :after flyspell
   :bind
