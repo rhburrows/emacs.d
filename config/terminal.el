@@ -1,18 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
-(use-package vterm)
-
-(use-package eat
-  :straight (:files ("*.el" ("term" "term/*.el") "*.texi"
-                     "*.ti" ("terminfo/e" "terminfo/e/*")
-                     ("terminfo/65" "terminfo/65/*")
-                     ("integration" "integration/*")
-                     (:exclude ".dir-locals.el" "*-tests.el")))
+(use-package ghostel
+  :bind (("C-c c" . ghostel-compile))
 
   :custom
-  (read-process-output-max (* 2 1024 1024))
-  (process-adaptive-read-buffering nil)
-  (eat-kill-buffer-on-exit t))
+  (ghostel-comint-global-mode 1))
 
 (use-package eshell
   :config
@@ -48,7 +40,7 @@
   (eshell-prompt-function 'rhb/eshell-prompt)
 
   :hook
-  (eshell-load . eat-eshell-mode)
+  (eshell-load . ghostel-eshell-visual-command-mode)
   (eshell-mode . (lambda ()
                    (setq-local imenu-generic-expression
                                '(("Prompt" " $ \\(.*\\)" 1))))))

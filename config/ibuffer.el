@@ -7,7 +7,7 @@
         '(("default"
            ("Terminal" (or
                         (mode . eshell-mode)
-                        (mode . eat-mode)))
+                        (mode . ghostel-mode)))
            ("Programming" (and
                            (derived-mode . prog-mode)
                            (not (name . "^\\*scratch\\*$"))))
