@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package ibuffer
   :config
   (global-set-key (kbd "C-x C-b") 'ibuffer)

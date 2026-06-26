@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package kotlin-mode)
 
 (use-package groovy-mode)

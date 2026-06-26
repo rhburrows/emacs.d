@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package magit
   :custom
   (magit-diff-refine-hunk 'all)

@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package sql-duckdb
   :ensure nil
   :straight nil

@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package neon-mode
   :straight (neon-mode
              :type git

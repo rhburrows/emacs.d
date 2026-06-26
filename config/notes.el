@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package obsidian
   :custom
   (obsidian-directory "~/Documents/Notes")
