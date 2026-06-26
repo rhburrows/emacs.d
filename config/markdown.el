@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package markdown-ts-mode
   :straight (:type built-in)
 

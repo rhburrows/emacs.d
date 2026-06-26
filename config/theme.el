@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package catppuccin-theme
   :init
   (defun rhb/apply-theme (appearance)

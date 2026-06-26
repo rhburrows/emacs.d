@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package dired
   :defer t
   :straight (compile :type built-in)

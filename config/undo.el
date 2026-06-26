@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package undo-tree
   :custom
   (undo-tree-enable-undo-in-region t)

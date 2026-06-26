@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package eldoc
   :init
   (global-eldoc-mode)

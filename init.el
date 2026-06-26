@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; This is the minimum major Emacs version I've testing this config on
 (defconst minimum-major-emacs-version 31)
 

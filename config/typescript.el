@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package eglot
   :config
   (defclass eglot-deno (eglot-lsp-server) ()

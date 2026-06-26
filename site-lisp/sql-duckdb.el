@@ -1,3 +1,6 @@
+;; -*- lexical-binding: t; -*-
+
+
 ;; DuckDB interpreter support for sql-interactive-mode
 ;; From: https://github.com/shoover/emacs.d/blob/main/lisp/sql-duckdb.el
 

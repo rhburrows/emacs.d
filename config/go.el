@@ -1,3 +1,6 @@
+;; -*- lexical-binding: t; -*-
+
+
 (use-package go-ts-mode
   :mode (("\\.go\\'" . go-ts-mode)
          ("/go\\.mod\\'" . go-mod-ts-mode))
