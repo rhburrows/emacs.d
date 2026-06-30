@@ -3,6 +3,7 @@
 (use-package eldoc
   :init
   (global-eldoc-mode)
+
   :custom
   (eldoc-help-at-pt t)
   (eldoc-echo-area-prefer-doc-buffer t))
@@ -19,7 +20,7 @@
    ("C-h v" . helpful-variable)
    ("C-h k" . helpful-key)
    ("C-h x" . helpful-command)
-   ("C-c C-d" . helpful-at-point)))
+   ("C-h ." . helpful-at-point)))
 
 (use-package devdocs
   :bind (( "C-c d" . devdocs-lookup)))
