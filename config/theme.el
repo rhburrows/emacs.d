@@ -43,28 +43,6 @@
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 
-(use-package dashboard
-  :after nerd-icons
-
-  :config
-  (dashboard-setup-startup-hook)
-
-  :custom
-  (dashboard-startup-banner 'logo)
-  (dashboard-banner-logo-title nil)
-  (dashboard-center-content t)
-  (dashboard-set-footer nil)
-
-  (dashboard-display-icons-p t)
-  (dashboard-icon-type 'nerd-icons)
-  (dashboard-set-heading-icons t)
-  (dashboard-set-file-icons t)
-
-  (dashboard-items '((projects . 5)
-                     (bookmarks . 5)
-                     (recents . 5)
-                     (registers . 5))))
-
 ;; Update the modeline
 (use-package moody
   :config
