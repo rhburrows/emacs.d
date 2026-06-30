@@ -33,8 +33,6 @@
   :custom
   (org-appear-autosubmarkers t))
 
-(defvar rhb/notes-directory (expand-file-name "~/Notes"))
-
 (use-package org-remark
   :after org
   :bind (
@@ -44,9 +42,8 @@
          ("C-c n o" . org-remark-open)
          ("C-c n ]" . org-remark-view-next)
          ("C-c n [" . org-remark-view-prev)
-         ("C-c n r" . org-remark-remove)
          ("C-c n d" . org-remark-delete))
   :init
   (org-remark-global-tracking-mode +1)
   :custom
-  (org-remark-notes-file-name (file-name-concat rhb/notes-directory "remarks.org")))
+  (org-remark-notes-file-name (expand-file-name "~/.remarks.org")))
