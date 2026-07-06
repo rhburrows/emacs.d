@@ -3,6 +3,8 @@
 (use-package ghostel
   :bind (("C-c c" . ghostel-compile))
 
+  :hook (ghostel-mode-hook . (lambda () (display-line-numbers-mode -1)))
+
   :custom
   (ghostel-comint-global-mode 1))
 
