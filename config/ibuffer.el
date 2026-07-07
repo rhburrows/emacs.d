@@ -26,6 +26,7 @@
 
   :hook
   (ibuffer-mode . (lambda ()
+                    (local-unset-key (kbd "M-o")) ; We want ace-window to be truly global
                     (ibuffer-switch-to-saved-filter-groups "default")))
 
   :custom

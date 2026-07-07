@@ -3,7 +3,9 @@
 (use-package ghostel
   :bind (("C-c c" . ghostel-compile))
 
-  :hook (ghostel-mode-hook . (lambda () (display-line-numbers-mode -1)))
+  :hook (ghostel-mode-hook . (lambda ()
+                               (local-unset-key (kbd "M-o"))
+                               (display-line-numbers-mode -1)))
 
   :custom
   (ghostel-comint-global-mode 1))
