@@ -5,14 +5,17 @@
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-saved-filter-groups
         '(("default"
-           ("Terminal" (or
-                        (mode . eshell-mode)
-                        (mode . ghostel-mode)))
+           ("Claude Code" (name . "^\\*claude-code"))
+
            ("Programming" (and
                            (derived-mode . prog-mode)
                            (not (name . "^\\*scratch\\*$"))))
+
+           ("Git" (name . "^\\magit"))
+           ("Terminal" (or
+                        (mode . eshell-mode)
+                        (mode . ghostel-mode)))
            ("Dired" (mode . dired-mode))
-           ("Magit" (name . "^\\magit"))
            ("Emacs" (or
                      (name . "^\\*scratch\\*$")
                      (name . "^\\*Messages\\*$")
