@@ -91,5 +91,5 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Start things off in eshell
-(eshell)
+(unless (server-running-p)
+  (server-start))

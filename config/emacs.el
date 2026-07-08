@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package emacs
+  :init
+  (setenv "EDITOR" "emacsclient")
+  (setenv "VISUAL" "emacsclient")
+
   :config
   (require 'whitespace)
   (defalias 'yes-or-no-p 'y-or-n-p)
