@@ -21,6 +21,11 @@
 
   :config
   (claude-code-ide-emacs-tools-setup)
+  (advice-add 'claude-code-ide--create-terminal-session
+              :before
+              (lambda (&rest r)
+                (setenv "CLAUDE_CODE_DISABLE_MOUSE_CLICKS" "1")))
 
   :custom
+  (claude-code-ide-use-side-window nil)
   (claude-code-ide-terminal-backend 'ghostel))
