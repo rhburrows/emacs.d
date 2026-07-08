@@ -116,3 +116,9 @@ are defining or executing a macro."
   :after flyspell
   :bind
   (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper)))
+
+(use-package project
+  :straight (:type built-in)
+
+  :custom
+  (project-switch-commands #'magit-project-status))

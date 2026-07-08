@@ -47,3 +47,6 @@
   (org-remark-global-tracking-mode +1)
   :custom
   (org-remark-notes-file-name (expand-file-name "~/.remarks.org")))
+
+(use-package ox-clip
+  :after org)

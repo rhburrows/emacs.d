@@ -33,6 +33,7 @@
 (use-package prog-mode
   :straight (compile :type built-in)
   :hook
+  (prog-mode . hl-line-mode)
   (prog-mode . flyspell-prog-mode))
 
 (use-package eglot
