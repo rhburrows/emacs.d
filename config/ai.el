@@ -29,3 +29,5 @@
   :custom
   (claude-code-ide-use-side-window nil)
   (claude-code-ide-terminal-backend 'ghostel))
+
+(use-package agent-shell)
