@@ -68,6 +68,7 @@
 (use-package mise
   :hook (
          (prog-mode . mise-mode)
+         (ghostel-mode . mise-mode)
          (eshell-mode . mise-mode))
 
   :custom

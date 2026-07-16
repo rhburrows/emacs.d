@@ -1,7 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package ghostel
-  :bind (("C-c c" . ghostel-compile))
+  :bind (("C-c c" . ghostel-compile)
+         ("C-c t" . ghostel))
 
   :hook (ghostel-mode-hook . (lambda ()
                                (local-unset-key (kbd "M-o"))
