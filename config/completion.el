@@ -38,7 +38,9 @@
   :custom
   (prefix-help-command #'embark-prefix-help-command))
 
-(use-package embark-consult)
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package wgrep)
 
@@ -60,7 +62,22 @@
          ("M-g i" . consult-imenu)
          ("M-g I" .  consult-imenu-multi)
          ("M-g f" . consult-flymake)
-         ("M-s r" . consult-ripgrep)))
+         ("M-s r" . consult-ripgrep))
+
+  :custom
+  (consult-narrow-key "<"))
+
+(use-package consult-project-extra
+  ;; :init
+  ;; (defvar-keymap embark-project-map
+  ;;   :doc "Keymap for Embark project actions."
+  ;;   :parent embark-file-map)
+  
+  :bind
+  (("C-x p f" . consult-project-extra-find))
+
+  :custom
+  (consult-project-function #'consult-project-extra-project-fn))
 
 (consult-customize
  consult-line consult-imenu consult-imenu-multi consult-flymake consult-ripgrep
