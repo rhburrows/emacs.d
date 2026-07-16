@@ -45,6 +45,7 @@
 (use-package wgrep)
 
 (use-package consult
+  :ensure t
   :bind (
          ("C-x b" . consult-buffer)
          ("M-y" . consult-yank-pop)
@@ -65,7 +66,19 @@
          ("M-s r" . consult-ripgrep))
 
   :custom
-  (consult-narrow-key "<"))
+  (consult-narrow-key "<")
+
+  :config
+  (consult-customize
+   consult-line consult-imenu consult-imenu-multi consult-flymake consult-ripgrep
+   :keymap (let ((map (make-sparse-keymap)))
+             (define-key map (kbd "M-e") #'embark-export)
+             map)
+
+   consult-line
+   :keymap (let ((map (make-sparse-keymap)))
+             (define-key map (kbd "C-s") #'previous-history-element)
+             map)))
 
 (use-package consult-project-extra
   ;; :init
@@ -79,16 +92,7 @@
   :custom
   (consult-project-function #'consult-project-extra-project-fn))
 
-(consult-customize
- consult-line consult-imenu consult-imenu-multi consult-flymake consult-ripgrep
- :keymap (let ((map (make-sparse-keymap)))
-           (define-key map (kbd "M-e") #'embark-export)
-           map)
 
- consult-line
- :keymap (let ((map (make-sparse-keymap)))
-           (define-key map (kbd "C-s") #'previous-history-element)
-           map))
 
 (use-package corfu
   :custom
