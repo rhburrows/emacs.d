@@ -2,34 +2,6 @@
 
 (use-package ibuffer
   :config
-  (setq ibuffer-saved-filter-groups
-        '(("default"
-           ("Claude Code" (name . "^\\*claude-code"))
-
-           ("Programming" (and
-                           (derived-mode . prog-mode)
-                           (not (name . "^\\*scratch\\*$"))))
-
-           ("Git" (name . "^\\magit:"))
-           ("Terminal" (or
-                        (mode . eshell-mode)
-                        (mode . ghostel-mode)))
-           ("Org" (and
-                   (not (name . "^\\.remarks.org$"))
-                   (mode . org-mode)))
-           ("Dired" (mode . dired-mode))
-           ("Emacs" (or
-                     (name . "^\\*scratch\\*$")
-                     (name . "^\\*Messages\\*$")
-                     (name . "^\\*Async-native-compile-log\\*$")
-                     (name . "^\\*straight-process\\*$")
-                     (name . "^\\*Backtrace\\*$")
-                     (name . "^\\*dashboard\\*$")))
-           ("Help" (or
-                    (mode . help-mode)
-                    (mode . Info-mode)
-                    (mode . helpful-mode))))))
-
   (define-ibuffer-column icon
     (:name "" :inline t)
     (cond
@@ -45,14 +17,12 @@
   (ibuffer-mode . hl-line-mode)
   (ibuffer-mode . (lambda ()
                     (display-line-numbers-mode -1)
-                    (local-unset-key (kbd "M-o"))
-                    (ibuffer-switch-to-saved-filter-groups "default")))
+                    (local-unset-key (kbd "M-o"))))
 
   :custom
   (ibuffer-expert t)
   (ibuffer-display-summary nil)
   (ibuffer-human-readable-size t)
-  (ibuffer-default-sorting-mode 'recency)
   (ibuffer-default-shrink-to-minimum-size nil)
   (ibuffer-show-empty-filter-groups nil)
   (ibuffer-formats
@@ -63,7 +33,30 @@
            (size 9 -1 :right)
            " "
            (mode 16 16 :left :elide)
-           " " filename-and-process)
+           " " project-file-relative)
      (mark " "
            (name 16 -1)
-           " " filename))))
+           " " filename)))
+  (ibuffer-fontification-alist
+   '((10 buffer-read-only font-lock-constant-face)
+     (15 (and buffer-file-name
+	            (string-match ibuffer-compressed-file-name-regexp
+			                      buffer-file-name))
+	       font-lock-doc-face)
+     (20 (or
+          (string-match "^\\*" (buffer-name))
+          (memq major-mode ibuffer-help-buffer-modes)) font-lock-comment-face)
+     (25 (ibuffer-hidden-buffer-p) italic)
+     (35 (derived-mode-p 'dired-mode) font-lock-function-name-face)
+     (40 (or
+          (derived-mode-p 'agent-shell-mode)
+          (string-match "^\\*claude-code" (buffer-name)))
+         font-lock-string-face)
+     (50 (and (boundp 'emacs-lock-mode) emacs-lock-mode) ibuffer-locked-buffer))))
+
+(use-package ibuffer-project
+  :hook (ibuffer . (lambda ()
+                     (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))))
+
+  :custom
+  (ibuffer-default-sorting-mode 'project-file-relative))
