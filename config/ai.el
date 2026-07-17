@@ -14,8 +14,8 @@
 (use-package agent-shell
   :config
   (defcustom rhb/ai-implement-prompt
-    "Implement the body of this function. Use the function signature and name to infer intent. Return only the complete function."
-    "prompt"
+    "Implement the body of this function. Use the function signature and name to infer intent replace the function signature with the complete implementation in place. Do not edit any code aside from this function. "
+    "prompt for implementing a function"
     :type 'string)
 
   (defun rhb/ai--config ()
@@ -38,6 +38,7 @@
   (defun rhb/ai-implement ()
     "Implement the body of the surrounding function signature."
     (interactive)
+    ;; TODO: verify buffer is saved & lock it until edit is done
     (let* ((config (rhb/ai--config))
            (context (if (region-active-p)
                         (agent-shell--get-region-context :deactivate t)
@@ -48,7 +49,8 @@
                                              :session-strategy 'new
                                              :no-focus t)))
       (agent-shell--display-buffer shell-buffer)
-      (agent-shell-insert :text text :shell-buffer shell-buffer)))
+      (agent-shell-insert :text text :shell-buffer shell-buffer)
+      (agent-shell-submit))) ;; TODO: reload buffer on finish
 
   (transient-define-prefix rhb/ai-transient ()
     "AI Transient menu"
