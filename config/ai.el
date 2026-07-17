@@ -11,23 +11,22 @@
                    :stream t
                    :models '("mistral-small3.2:latest"))))
 
-(use-package web-server)
+(use-package agent-shell
+  :commands (agent-shell-anthropic-start-claude-code
+             agent-shell-opencode-start-agent))
 
-(use-package claude-code-ide
-  :straight (:type git :host github :repo "manzaltu/claude-code-ide.el")
-  :after web-server
+(use-package agent-review
+  :commands (agent-review)
+  :straight (agent-review
+             :type git
+             :host github
+             :repo "nineluj/agent-review"
+             :files ("*.el")))
 
-  :bind ("C-c '" . claude-code-ide-menu)
-
-  :config
-  (claude-code-ide-emacs-tools-setup)
-  (advice-add 'claude-code-ide--create-terminal-session
-              :before
-              (lambda (&rest r)
-                (setenv "CLAUDE_CODE_DISABLE_MOUSE_CLICKS" "1")))
-
-  :custom
-  (claude-code-ide-use-side-window nil)
-  (claude-code-ide-terminal-backend 'ghostel))
-
-(use-package agent-shell)
+(transient-define-prefix rhb/ai-transient ()
+  "AI Transient menu"
+  ["Commands"
+   ("c" "Claude Code" agent-shell-anthropic-start-claude-code)
+   ("o" "Opencode" agent-shell-opencode-start-agent)
+   ("r" "Agent review" agent-review)])
+(global-set-key (kbd "C-c '") 'rhb/ai-transient)

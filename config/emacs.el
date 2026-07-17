@@ -94,9 +94,8 @@ are defining or executing a macro."
   (which-key-mode))
 
 (use-package ace-window
-  :config
-  (global-set-key (kbd "M-o") 'ace-window)
-  (global-set-key (kbd "C-c s") 'ace-swap-window))
+  :bind (("M-o" . ace-window)
+         ("C-c s" . ace-swap-window)))
 
 (use-package devil
   :config
