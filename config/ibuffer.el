@@ -48,8 +48,9 @@
           (memq major-mode ibuffer-help-buffer-modes)) font-lock-comment-face)
      (25 (ibuffer-hidden-buffer-p) italic)
      (35 (derived-mode-p 'dired-mode) font-lock-function-name-face)
-     (40 (or
-          (derived-mode-p 'agent-shell-mode)
+     (40 (derived-mode-p 'ghostel-mode 'eshell-mode) font-lock-type-face)
+     (50 (or
+          (derived-mode-p 'agent-shell-mode 'agent-review-mode)
           (string-match "^\\*claude-code" (buffer-name)))
          font-lock-string-face)
      (50 (and (boundp 'emacs-lock-mode) emacs-lock-mode) ibuffer-locked-buffer))))
