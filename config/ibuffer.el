@@ -57,7 +57,8 @@
 
 (use-package ibuffer-project
   :hook (ibuffer . (lambda ()
-                     (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))))
+                     (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
+                     (ibuffer-update nil t)))
 
   :custom
   (ibuffer-default-sorting-mode 'project-file-relative))
