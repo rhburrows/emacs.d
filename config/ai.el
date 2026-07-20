@@ -16,11 +16,14 @@
   (transient-define-prefix rhb/ai-transient ()
     "AI Transient menu"
     ["Actions"
-     ("o" "Start OpenCode" agent-shell-opencode)
+     ("o" "Start OpenCode" agent-shell-opencode-start-agent)
      ("c" "Start Claude Code" agent-shell-anthropic-start-claude-code)]
     ["Review"
      ("r" "Agent review" agent-review)])
 
+  :hook
+  (agent-shell-mode-hook . (lambda () (display-line-numbers-mode -1)))
+  
   :bind
   ("C-c '" . rhb/ai-transient))
 

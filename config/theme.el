@@ -55,6 +55,7 @@
   :hook
   ((eshell-mode . hide-mode-line-mode)
    (ghostel-mode . hide-mode-line-mode)
+   (agent-shell-mode . hide-mode-line-mode)
    (compilation-mode . hide-mode-line-mode)))
 
 (defvar rhb/mode-line-exclude-modes
