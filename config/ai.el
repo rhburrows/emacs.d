@@ -4,22 +4,20 @@
   :defer t
   :config
   (setq
-   gptel-default-mode 'org-mode
-   gptel-model "mistral-small3.2:latest"
-   gptel-backend (gptel-make-ollama "Ollama"
-                   :host "localhost:11434"
-                   :stream t
-                   :models '("mistral-small3.2:latest"))))
+   gptel-default-mode 'org-mode))
 
 (use-package agent-shell
   :config
   (transient-define-prefix rhb/ai-transient ()
     "AI Transient menu"
-    ["Actions"
+    ["Agents"
      ("o" "Start OpenCode" agent-shell-opencode-start-agent)
      ("c" "Start Claude Code" agent-shell-anthropic-start-claude-code)]
+    ["Send"
+     ("r" "Send region or error" agent-shell-send-dwim)
+     ("f" "Send file" agent-shell-send-file)]
     ["Review"
-     ("r" "Agent review" agent-review)])
+     ("R" "Agent review" agent-review)])
 
   :hook
   (agent-shell-mode-hook . (lambda () (display-line-numbers-mode -1)))
