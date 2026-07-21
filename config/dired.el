@@ -1,14 +1,15 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package dired
-  :defer t
   :straight (compile :type built-in)
+  :ensure t
   :custom
   (dired-recursive-copies 'always)
   (dired-use-ls-dired nil)
   (dired-vc-rename-file t))
 
 (use-package dired-subtree
+  :ensure t
   :bind
   (:map dired-mode-map ("i" . dired-subtree-toggle))
 
