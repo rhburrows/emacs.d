@@ -1,5 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
+(use-package ob-mermaid
+  :demand t
+  :custom
+  (ob-mermaid-cli-path "mmdc"))
+
 (use-package org
   :custom
   (org-startup-truncated nil)
@@ -51,7 +56,3 @@
 
 (use-package ox-clip
   :after org)
-
-(use-package ob-mermaid
-  :custom
-  (ob-mermaid-cli-path "mmdc"))
