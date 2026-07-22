@@ -18,6 +18,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
+     (mermaid . t)
      (emacs-lisp . t)
      (dot . t)
      ))
@@ -50,3 +51,7 @@
 
 (use-package ox-clip
   :after org)
+
+(use-package ob-mermaid
+  :custom
+  (ob-mermaid-cli-path "mmdc"))
