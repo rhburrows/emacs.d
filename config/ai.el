@@ -28,7 +28,12 @@
               :key "g"
               :description "Start Goose"
               :command-variable agent-shell-goose-acp-command
-              :function agent-shell-goose-start-agent))
+              :function agent-shell-goose-start-agent)
+      (:agent "Pi"
+              :key "p"
+              :description "Start Pi"
+              :command-variable agent-shell-pi-acp-command
+              :function agent-shell-pi-start-agent))
     "Agent Shell agents shown in `rhb/ai-transient'.")
 
   (defvar rhb/ai-transient--agent-suffixes nil
