@@ -12,7 +12,8 @@
     "AI Transient menu"
     ["Agents"
      ("o" "Start OpenCode" agent-shell-opencode-start-agent)
-     ("c" "Start Claude Code" agent-shell-anthropic-start-claude-code)]
+     ("c" "Start Claude Code" agent-shell-anthropic-start-claude-code)
+     ("g" "Start Goose" agent-shell-goose-start-agent)]
     ["Send"
      ("r" "Send region or error" agent-shell-send-dwim)
      ("f" "Send file" agent-shell-send-file)]
