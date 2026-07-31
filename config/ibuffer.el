@@ -10,8 +10,18 @@
      (major-mode (nerd-icons-icon-for-mode major-mode))
      (t "")))
 
-  :bind
-  (:map global-map ("C-x C-b" . ibuffer))
+  (defun rhb/ibuffer-agent-shell-mode ()
+    "Set up the ibuffer filter, grouping, and format for working with multiple agent-shell sessions"
+    (interactive)
+    (ibuffer-filter-by-mode 'agent-shell-mode)
+    (setq ibuffer-current-format 1)
+    (ibuffer-update-format)
+    (ibuffer-redisplay t))
+
+  :bind (
+         ("C-c a" . rhb/ibuffer-agent-shell-mode)
+         :map global-map
+         ("C-x C-b" . ibuffer))
 
   :hook
   (ibuffer-mode . hl-line-mode)
@@ -26,7 +36,9 @@
   (ibuffer-default-shrink-to-minimum-size nil)
   (ibuffer-show-empty-filter-groups nil)
   (ibuffer-formats
-   '((mark modified read-only locked " "
+   '(
+     ;;; Index 0 - default 
+     (mark modified read-only locked " "
            (icon 2 2)
            (name 30 30 :left :elide)
            " "
@@ -34,9 +46,12 @@
            " "
            (mode 16 16 :left :elide)
            " " project-file-relative)
-     (mark " "
-           (name 16 -1)
-           " " filename)))
+     ;;; Index 1 - format for agent buffers
+     (" "
+      (icon 2 2)
+      (mode 16 16 :left :elide)
+      )
+     ))
   (ibuffer-fontification-alist
    '((10 buffer-read-only font-lock-constant-face)
      (15 (and buffer-file-name
