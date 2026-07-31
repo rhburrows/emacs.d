@@ -4,6 +4,7 @@
   :init
   (setenv "EDITOR" "emacsclient")
   (setenv "VISUAL" "emacsclient")
+  (setenv "PAGER" "cat") ;; Disable interactive paging
 
   :config
   (require 'whitespace)
