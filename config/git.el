@@ -3,6 +3,9 @@
 (use-package magit
   :custom
   (magit-diff-refine-hunk 'all)
+  (magit-diff-specify-hunk-foreground nil)
+  (magit-diff-fontify-hunk 'all)
+  (magit-diff-use-indicator-faces t)
 
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
