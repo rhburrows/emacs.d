@@ -76,6 +76,7 @@
 (load-config-file "json.el")
 (load-config-file "markdown.el")
 (load-config-file "neon.el")
+(load-config-file "ocaml.el")
 (load-config-file "php.el")
 (load-config-file "rust.el")
 (load-config-file "sql.el")
