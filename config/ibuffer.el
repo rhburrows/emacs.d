@@ -10,18 +10,80 @@
      (major-mode (nerd-icons-icon-for-mode major-mode))
      (t "")))
 
-  (defun rhb/ibuffer-agent-shell-mode ()
-    "Set up the ibuffer filter, grouping, and format for working with multiple agent-shell sessions"
-    (interactive)
-    (ibuffer-filter-by-mode 'agent-shell-mode)
-    (setq ibuffer-current-format 1)
-    (ibuffer-update-format)
-    (ibuffer-redisplay t))
+  (define-ibuffer-column agent-status
+    (:name "Status")
+    (if (and (derived-mode-p 'agent-shell-mode)
+             (fboundp 'agent-shell-status))
+        (pcase (agent-shell-status)
+          ('busy (propertize "● busy" 'face 'warning))
+          ('blocked (propertize "● blocked" 'face 'error))
+          ('ready (propertize "● ready" 'face 'success))
+          (_ ""))
+      ""))
 
-  :bind (
-         ("C-c a" . rhb/ibuffer-agent-shell-mode)
-         :map global-map
-         ("C-x C-b" . ibuffer))
+  (define-ibuffer-column agent-name
+    (:name "Agent")
+    (if (and (derived-mode-p 'agent-shell-mode)
+             (boundp 'agent-shell--state))
+        (or (map-nested-elt agent-shell--state '(:agent-config :mode-line-name))
+            (map-nested-elt agent-shell--state '(:agent-config :buffer-name))
+            "")
+      ""))
+
+  (define-ibuffer-column agent-model
+    (:name "Model")
+    (if (and (derived-mode-p 'agent-shell-mode)
+             (boundp 'agent-shell--state)
+             (fboundp 'agent-shell-get-model-name))
+        (or (agent-shell-get-model-name agent-shell--state) "")
+      ""))
+
+  (define-ibuffer-column agent-mode
+    (:name "Mode")
+    (if (and (derived-mode-p 'agent-shell-mode)
+             (boundp 'agent-shell--state)
+             (fboundp 'agent-shell-get-mode-name))
+        (or (agent-shell-get-mode-name agent-shell--state) "")
+      ""))
+
+  (define-ibuffer-column agent-project
+    (:name "Project")
+    (if (and (derived-mode-p 'agent-shell-mode)
+             (fboundp 'agent-shell--project-name)
+             (project-current))
+        (agent-shell--project-name)
+      ""))
+
+  (defun rhb/ibuffer-agents ()
+    "Open a dedicated ibuffer showing only agent-shell sessions.
+
+Uses its own buffer, format, and no filter groups, independent of the
+default `ibuffer'.  Enables `ibuffer-auto-mode' so the list tracks
+agent shells as they come and go."
+    (interactive)
+    (ibuffer t "*Ibuffer Agents*"
+             '((mode . agent-shell-mode))
+             nil nil nil
+             '((" "
+                (agent-status 10 10 :left)
+                " "
+                (agent-name 12 12 :left :elide)
+                " "
+                (agent-project 30 30 :left :elide)
+                " "
+                (agent-mode 12 12 :left :elide)
+                " "
+                (agent-model 12 12 :left :elide)
+                " "
+                (name 40 30 :left :elide))))
+    (with-current-buffer "*Ibuffer Agents*"
+      (setq ibuffer-filter-groups nil)
+      (ibuffer-auto-mode 1)
+      (ibuffer-update nil t)))
+
+  :bind (:map global-map
+              ("C-c a" . rhb/ibuffer-agents)
+              ("C-x C-b" . ibuffer))
 
   :hook
   (ibuffer-mode . hl-line-mode)
@@ -36,22 +98,14 @@
   (ibuffer-default-shrink-to-minimum-size nil)
   (ibuffer-show-empty-filter-groups nil)
   (ibuffer-formats
-   '(
-     ;;; Index 0 - default 
-     (mark modified read-only locked " "
+   '((mark modified read-only locked " "
            (icon 2 2)
            (name 30 30 :left :elide)
            " "
            (size 9 -1 :right)
            " "
            (mode 16 16 :left :elide)
-           " " project-file-relative)
-     ;;; Index 1 - format for agent buffers
-     (" "
-      (icon 2 2)
-      (mode 16 16 :left :elide)
-      )
-     ))
+           " " project-file-relative)))
   (ibuffer-fontification-alist
    '((10 buffer-read-only font-lock-constant-face)
      (15 (and buffer-file-name
@@ -72,8 +126,9 @@
 
 (use-package ibuffer-project
   :hook (ibuffer . (lambda ()
-                     (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
-                     (ibuffer-update nil t)))
+                     (unless (equal (buffer-name) "*Ibuffer Agents*")
+                       (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
+                       (ibuffer-update nil t))))
 
   :custom
   (ibuffer-default-sorting-mode 'project-file-relative))
