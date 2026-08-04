@@ -78,9 +78,7 @@
         'rhb/ai-transient rhb/ai-transient--agent-suffixes))]
     ["Send"
      ("r" "Send region or error" agent-shell-send-dwim)
-     ("f" "Send file" agent-shell-send-file)]
-    ["Review"
-     ("R" "Agent review" agent-review)])
+     ("f" "Send file" agent-shell-send-file)])
 
   (rhb/ai-transient-refresh)
 
@@ -90,10 +88,13 @@
   :bind
   ("C-c '" . rhb/ai-transient))
 
-(use-package agent-review
-  :commands (agent-review)
-  :straight (agent-review
+(use-package agent-shell-macext
+  :straight (agent-shell-macext
              :type git
              :host github
-             :repo "nineluj/agent-review"
-             :files ("*.el")))
+             :repo "cxa/agent-shell-macext")
+  :after agent-shell
+  :custom
+  (agent-shell-macext-file-copy-policy 'auto)
+  (agent-shell-macext-notifications t)
+  (agent-shell-macext-notify-current-buffer nil))
