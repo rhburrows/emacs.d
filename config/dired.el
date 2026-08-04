@@ -5,6 +5,7 @@
   :ensure t
   :custom
   (dired-recursive-copies 'always)
+  (dired-listing-switches "-alh")
   (dired-use-ls-dired nil)
   (dired-vc-rename-file t))
 
