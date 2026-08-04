@@ -6,6 +6,7 @@
   (magit-diff-specify-hunk-foreground nil)
   (magit-diff-fontify-hunk 'all)
   (magit-diff-use-indicator-faces t)
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
 
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
