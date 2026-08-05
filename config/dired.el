@@ -7,7 +7,8 @@
   (dired-recursive-copies 'always)
   (dired-listing-switches "-alh")
   (dired-use-ls-dired nil)
-  (dired-vc-rename-file t))
+  (dired-vc-rename-file t)
+  (dired-hide-details-hide-symlink-targets nil))
 
 (use-package dired-subtree
   :ensure t
