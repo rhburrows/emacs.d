@@ -73,3 +73,10 @@
 
   :custom
   (mise-update-on-eshell-directory-change t))
+
+(use-package fancy-compilation
+  :ensure t
+  :commands (fancy-compilation-mode)
+
+  :config
+  (with-eval-after-load 'compile (fancy-compilation-mode)))
