@@ -70,6 +70,7 @@ are defining or executing a macro."
   (ns-pop-up-frames nil)
   (winner-mode 1)
   (editorconfig-mode 1)
+  (find-file-visit-truename t)
 
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
