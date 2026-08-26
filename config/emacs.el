@@ -49,7 +49,7 @@ are defining or executing a macro."
 
   :custom
   (jit-lock-defer-time 0.05)
-  (read-process-output-max (* 1024 1024))
+  (read-process-output-max (* 4 1024 1024))
 
   (inhibit-splash-screen t)
   (initial-scratch-message nil)
