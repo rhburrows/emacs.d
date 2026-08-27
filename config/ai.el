@@ -7,6 +7,9 @@
    gptel-default-mode 'org-mode))
 
 (use-package agent-shell
+  :custom
+  (agent-shell-pi-environment '("PI_ACP_ENABLE_EMBEDDED_CONTEXT=true"))
+
   :config
   (defconst rhb/ai-transient-agent-specs
     '((:agent "OpenCode"
