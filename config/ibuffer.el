@@ -61,7 +61,7 @@ Uses its own buffer, format, and no filter groups, independent of the
 default `ibuffer'.  Enables `ibuffer-auto-mode' so the list tracks
 agent shells as they come and go."
     (interactive)
-    (ibuffer t "*Ibuffer Agents*"
+    (ibuffer nil "*Ibuffer Agents*"
              '((mode . agent-shell-mode))
              nil nil nil
              '((" "
