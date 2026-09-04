@@ -122,4 +122,5 @@ are defining or executing a macro."
   :straight (:type built-in)
 
   :custom
-  (project-switch-commands #'magit-project-status))
+  (project-switch-commands '((project-find-file "Find file")
+                             (project-dired "Dired"))))

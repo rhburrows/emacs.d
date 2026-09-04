@@ -1,8 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package ghostel
-  :bind (("C-c c" . ghostel-compile)
-         ("C-c t" . ghostel))
+  :bind (:map ghostel-semi-char-mode-map
+              ("C-s" . consult-line))
 
   :hook (ghostel-mode-hook . (lambda ()
                                (local-unset-key (kbd "M-o"))
@@ -10,6 +10,23 @@
 
   :custom
   (ghostel-comint-global-mode 1))
+
+(use-package consult-ghostel
+  :straight (consult-ghostel
+             :type git
+             :host github
+             :repo "dakra/ghostel"
+             :files ("extensions/consult-ghostel/*.el"))
+  :demand t 
+
+  :bind (("C-c t" . consult-ghostel)
+         :map project-prefix-map
+         ("t" . consult-ghostel-project)
+         :map ghostel-semi-char-mode-map
+         ("C-c h" . consult-ghostel-history))
+
+  :config
+  (add-to-list 'project-switch-commands '(consult-ghostel-project "Ghostel") t))
 
 (use-package eshell
   :config

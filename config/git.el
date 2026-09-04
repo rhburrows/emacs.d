@@ -1,6 +1,11 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package magit
+  :demand t
+  :bind (
+         :map project-prefix-map
+         ("g" . magit-project-status))
+
   :custom
   (magit-diff-refine-hunk 'all)
   (magit-diff-specify-hunk-foreground nil)
@@ -9,7 +14,8 @@
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
 
   :config
-  (global-set-key (kbd "C-x g") 'magit-status))
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
 
 (use-package diff-hl
   :init
