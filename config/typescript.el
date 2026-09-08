@@ -24,9 +24,7 @@
     "Minor mode for Node projects."
     :lighter " Node"
     (when node-project-mode
-      (setq-local devdocs-current-doc '("node" "typescript"))
-      (setq-local eglot-server-programs
-                  (list (cons '(js-ts-mode typescript-ts-mode) '("vtsls" "--stdio"))))))
+      (setq-local devdocs-current-doc '("node" "typescript"))))
 
   (defun rhb/setup-ts-project ()
     (cond
