@@ -29,11 +29,11 @@
 ;; Load exec-path-from-shell early to fix Mac OSX Sequoia issues
 ;; Its not properly loading the PATH when launched from outside the terminal
 ;; https://github.com/d12frosted/homebrew-emacs-plus/issues/720
-;; (use-package exec-path-from-shell
-;;   :demand t
-;;   :init (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :demand t
+  :init (exec-path-from-shell-initialize))
 
-;; Force early loading of org-mode so there isn't a version mismatch later
+;; Force early loading so there isn't a version mismatch later
 (straight-use-package 'org)
 (straight-use-package 'project)
 
