@@ -20,10 +20,11 @@
   :demand t 
 
   :bind (("C-c t" . consult-ghostel)
+         ("C-c C-t" . ghostel-list-buffers)
          :map project-prefix-map
          ("t" . consult-ghostel-project)
          :map ghostel-semi-char-mode-map
-         ("C-c h" . consult-ghostel-history))
+         ("C-r" . consult-ghostel-history))
 
   :config
   (add-to-list 'project-switch-commands '(consult-ghostel-project "Ghostel") t))
