@@ -2,4 +2,5 @@
 
 (use-package docker
   :custom
-  (docker-container-default-sort-key '("Created" "Image")))
+  (docker-container-default-sort-key '("Created" "Image"))
+  (docker-terminal-backend 'ghostel))

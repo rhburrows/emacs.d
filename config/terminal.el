@@ -6,10 +6,23 @@
 
   :hook (ghostel-mode-hook . (lambda ()
                                (local-unset-key (kbd "M-o"))
-                               (display-line-numbers-mode -1)))
+                               (display-line-numbers-mode -1)
+                               (buffer-disable-undo)
+                               (setq-local truncate-linst t)
+                               (setq-local nobreak-char-display nil)
+                               (setq-local bidi-paragraph-direction 'left-to-right)
+                               (setq-local bidi-inhibit-bpa t)
+                               (setq-local scroll-conservatively most-positive-fixnum)
+                               (setq-local hscroll-margin 0)
+                               (setq-local scroll-margin 0)
+                               (setq-local auto-hscroll-mode nil)
+                               (setq-local process-adaptive-read-buffering nil)
+                               (setq-local font-lock-defaults '(nil t))))
 
   :custom
-  (ghostel-comint-global-mode 1))
+  (ghostel-comint-global-mode 1)
+  (ghostel-timer-delay 0.01)
+  (ghostel-max-scrollback (* 1024 1024)))
 
 (use-package consult-ghostel
   :straight (consult-ghostel
