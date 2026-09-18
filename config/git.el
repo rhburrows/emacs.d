@@ -12,6 +12,10 @@
   (magit-diff-fontify-hunk 'all)
   (magit-diff-use-indicator-faces t)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  (magit-git-executable
+   (or (and (file-executable-p "/opt/homebrew/bin/git")
+            "/opt/homebrew/bin/git")
+       (executable-find "git")))
 
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
