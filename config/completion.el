@@ -3,15 +3,18 @@
 (use-package emacs
   :custom
   (tab-always-indent 'complete)
+  ()
   (completion-styles '(basic initials substring)))
 
 (use-package vertico
   :config
   (vertico-mode)
   (vertico-mouse-mode)
+
   :custom
-  (vertico-cycle t)
-  (vertico-prompt directory))
+  (vertico-count 15)
+  (vertico-resize 'grow-only)
+  (vertico-cycle t))
 
 (use-package savehist
   :config
@@ -21,13 +24,17 @@
   :custom
   (completion-styles '(orderless basic))
   (completion-category-default nil)
-  (completion-category-overrides '((file (styles partial-completion)))))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t))
 
 (use-package marginalia
   :bind (:map minibuffer-local-map
-              ("M-Z" . marginalia-cycle))
+              ("M-A" . marginalia-cycle))
   :init
-  (marginalia-mode))
+  (marginalia-mode)
+
+  :custom
+  (marginalia-align 'right))
 
 (use-package embark
   :bind
@@ -81,11 +88,6 @@
              map)))
 
 (use-package consult-project-extra
-  ;; :init
-  ;; (defvar-keymap embark-project-map
-  ;;   :doc "Keymap for Embark project actions."
-  ;;   :parent embark-file-map)
-  
   :bind
   (("C-x p f" . consult-project-extra-find))
 
@@ -96,9 +98,9 @@
 
 (use-package corfu
   :custom
-  (corfu-auto t)
-  (corfu-auto-delay 0.5)
   (corfu-cycle t)
+  (corfu-quit-no-match t)
+
 
   :init
   (global-corfu-mode)
