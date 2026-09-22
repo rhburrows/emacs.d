@@ -55,6 +55,9 @@
   :ensure t
   :bind (
          ("C-x b" . consult-buffer)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("C-x 5 b" . consult-buffer-other-frame)
+         ("C-x t b" . consult-buffer-other-tab)
          ("M-y" . consult-yank-pop)
          ("C-h i" . consult-info)
 
@@ -63,6 +66,7 @@
 
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
+         ("M-g x" . consult-mark)
          ("M-s u" . consult-focus-lines)
 
          ;; Search-related functions
@@ -95,12 +99,10 @@
   (consult-project-function #'consult-project-extra-project-fn))
 
 
-
 (use-package corfu
   :custom
   (corfu-cycle t)
   (corfu-quit-no-match t)
-
 
   :init
   (global-corfu-mode)
