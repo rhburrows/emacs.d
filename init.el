@@ -26,6 +26,8 @@
 (setopt straight-use-package-by-default t)
 (straight-use-package 'use-package)
 
+(setenv "USER" user-login-name)
+
 ;; Load exec-path-from-shell early to fix Mac OSX Sequoia issues
 ;; Its not properly loading the PATH when launched from outside the terminal
 ;; https://github.com/d12frosted/homebrew-emacs-plus/issues/720
