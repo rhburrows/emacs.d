@@ -44,7 +44,6 @@
  ("gcmh" . "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
  ("ghostel" . "2bea18f3b52bf97d8222fea706da6fabdfc2cbb8")
  ("gnu-elpa-mirror" . "f39608f7ff7a67cfd093635c6dcba36a6285de87")
- ("gptel" . "9417813e279f81d1ee1909f848b7c42f69d68d20")
  ("graphviz-dot-mode" . "0a4509e9f63c8eae8d050acc62eac642fd77ae59")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("helpful" . "03756fa6ad4dcca5e0920622b1ee3f70abfc4e39")

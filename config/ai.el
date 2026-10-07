@@ -1,11 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(use-package gptel
-  :defer t
-  :config
-  (setq
-   gptel-default-mode 'org-mode))
-
 (use-package agent-shell
   :custom
   (agent-shell-pi-environment '("PI_ACP_ENABLE_EMBEDDED_CONTEXT=true"))
