@@ -71,6 +71,7 @@
 (load-config-file "notes.el")
 
 ;; Language specific configurations
+(load-config-file "caddy.el")
 (load-config-file "go.el")
 (load-config-file "graphviz.el")
 (load-config-file "java.el")
@@ -81,6 +82,7 @@
 (load-config-file "php.el")
 (load-config-file "rust.el")
 (load-config-file "sql.el")
+(load-config-file "swift.el")
 (load-config-file "typescript.el")
 (load-config-file "yaml.el")
 (load-config-file "zig.el")
