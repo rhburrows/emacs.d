@@ -64,7 +64,8 @@ agent shells as they come and go."
     (ibuffer nil "*Ibuffer Agents*"
              '((mode . agent-shell-mode))
              nil nil nil
-             '((" "
+             '((mark
+                " "
                 (agent-status 10 10 :left)
                 " "
                 (agent-name 12 12 :left :elide)
