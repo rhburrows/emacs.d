@@ -14,7 +14,6 @@
       (expand-file-name subdir (concat user-init-dir "agent-shell/" sanitized))))
 
   :custom
-  (agent-shell-prefer-viewport-interaction t)
   (agent-shell-dot-subdir-function #'rhb/agent-shell-dot-subdir)
   (agent-shell-pi-environment '("PI_ACP_ENABLE_EMBEDDED_CONTEXT=true"))
   ;; Trim down the list of suggested agents to just ones I might use
