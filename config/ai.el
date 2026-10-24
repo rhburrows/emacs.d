@@ -16,11 +16,14 @@
   :custom
   (agent-shell-dot-subdir-function #'rhb/agent-shell-dot-subdir)
   (agent-shell-pi-environment '("PI_ACP_ENABLE_EMBEDDED_CONTEXT=true"))
+  ;; The Homebrew cask installs the Cursor CLI as `cursor-agent', not `agent'
+  (agent-shell-cursor-acp-command '("cursor-agent" "acp"))
   ;; Trim down the list of suggested agents to just ones I might use
   (agent-shell-agent-configs '(
                                agent-shell-anthropic-make-claude-code-config
                                agent-shell-openai-make-codex-config
                                agent-shell-pi-make-agent-config
-                               agent-shell-opencode-make-agent-config))
+                               agent-shell-opencode-make-agent-config
+                               agent-shell-cursor-make-agent-config))
 
   (agent-shell-anthropic-default-session-mode-id "auto"))
