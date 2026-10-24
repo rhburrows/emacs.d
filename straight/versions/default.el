@@ -2,7 +2,6 @@
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("acp.el" . "242cef63d76cc1073485847f67a21f6d8406d158")
  ("agent-shell" . "9a52907d7c6c00e06e570d2d37a50c1a0174fa47")
- ("agent-shell-macext" . "41e0a7d31434a0f3fe08c83d9acc45b5402bd3b7")
  ("apheleia" . "d97806bf2b5b72f1e3df01e9a045a4d242906b65")
  ("avy" . "933d1f36cca0f71e4acb5fac707e9ae26c536264")
  ("bind-key" . "6ff8788e347ce31b5c3c4647c2e22e7ee2c5ab7c")
