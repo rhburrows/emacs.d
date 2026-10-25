@@ -76,6 +76,7 @@
 (load-config-file "caddy.el")
 (load-config-file "go.el")
 (load-config-file "graphviz.el")
+(load-config-file "janet.el")
 (load-config-file "java.el")
 (load-config-file "json.el")
 (load-config-file "markdown.el")

@@ -50,6 +50,7 @@
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("htmlize" . "fa644880699adea3770504f913e6dddbec90c076")
  ("inheritenv" . "b9e67cc20c069539698a9ac54d0e6cc11e616c6f")
+ ("janet-ts-mode" . "d08adfb4ed901e00f31ccce89a855b7459cbf173")
  ("jenkinsfile-mode" . "568865ee419e0592de0dd0717d6769a66d9df111")
  ("jsonrpc" . "d8143c52679eaeebcca26dd41e015dc73d167b49")
  ("kotlin-mode" . "fddd747e5b4736e8b27a147960f369b86179ddff")
