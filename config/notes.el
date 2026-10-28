@@ -3,10 +3,10 @@
 (use-package obsidian
   :custom
   (obsidian-directory "~/Documents/Notes")
-  (obsidian-inbox-directory "Inbox")
-  (obsidian-daily-notes-directory "Inbox")
+  (obsidian-inbox-directory "1. Inbox")
+  (obsidian-daily-notes-directory "Daily Notes")
   (obsidian-templates-directory "Templates")
-  (obsidian-daily-note-template "Daily Note.md")
+  (obsidian-daily-note-template "Daily Notes Template.md")
 
   :bind (
          ("C-c n d" . obsidian-daily-note)
@@ -21,4 +21,14 @@
          )
 
   :config
+  (defun obsidian-capture ()
+    "Create an Obsidian inbox note with an editable timestamp prefix."
+    (interactive)
+    (let* ((title (read-from-minibuffer
+                   "Title: " (format-time-string "%Y-%m-%d %H%M ")))
+           (filename (s-concat obsidian-directory "/" obsidian-inbox-directory "/" title ".md"))
+           (clean-filename (s-replace "//" "/" filename)))
+      (find-file (expand-file-name clean-filename) t)
+      (save-buffer)))
+
   (global-obsidian-mode t))
