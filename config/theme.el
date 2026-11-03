@@ -12,10 +12,10 @@
   (defun rhb/apply-frame-settings (frame)
     "Apply desired settings to FRAME."
     (with-selected-frame frame
-      (set-face-attribute 'default frame :family "Fira Code" :height 140)))
+      (set-face-attribute 'default frame :family "JetBrainsMono NFM" :height 140)))
 
   :custom-face
-  (default ((t (:family "Fira Code" :height 140))))
+  (default ((t (:family "JetBrainsMono NFM" :height 140))))
 
   :config
   (load-theme 'catppuccin :no-confirm)
@@ -25,7 +25,7 @@
 
 (use-package nerd-icons
   :custom
-  (nerd-icons-font-family "FiraCode Nerd Font Mono"))
+  (nerd-icons-font-family "JetBrainsMono NFM"))
 
 (use-package nerd-icons-dired
   :hook
