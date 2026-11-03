@@ -7,6 +7,7 @@
   (obsidian-daily-notes-directory "Daily Notes")
   (obsidian-templates-directory "Templates")
   (obsidian-daily-note-template "Daily Notes Template.md")
+  (elgrep-data-file nil)
 
   :bind (
          ("C-c n d" . obsidian-daily-note)
