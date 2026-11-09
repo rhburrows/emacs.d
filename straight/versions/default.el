@@ -59,6 +59,7 @@
  ("magit" . "659f89955cf60fe3d4326d881c412df06c69680d")
  ("marginalia" . "d76d7e36185ab552240c14fb08f7abcbf9a2910c")
  ("markdown-mode" . "76cb4ffecfdf95ee769e5cb4608e04202c3c1521")
+ ("markdown-ts-appear" . "d740ad4f59b8b34ea27a93a2b3b98fbdaf0cd467")
  ("melpa" . "ce48c8475144800fc1150607353df958afadf2ed")
  ("mise.el" . "849c44b36594c80c57a555c5671dd1a5a83d3184")
  ("moody" . "48556e65f37c040a430f123494f517f961ae000c")
