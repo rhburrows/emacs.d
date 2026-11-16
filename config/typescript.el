@@ -2,36 +2,18 @@
 
 (use-package eglot
   :config
-  (defclass eglot-deno (eglot-lsp-server) ()
-    :documentation "A custom class for deno lsp.")
+  (add-to-list 'eglot-server-programs
+               '(((js-mode :language-id "javascript")
+                  (js-ts-mode :language-id "javascript")
+                  (tsx-ts-mode :language-id "typescriptreact")
+                  (typescript-ts-mode :language-id "typescript")
+                  (typescript-mode :language-id "typescript"))
+                 . ("npx" "--no-install" "tsc" "--lsp" "--stdio"))))
 
-  (cl-defmethod eglot-initialization-options ((server eglot-deno))
-    (list :enable t :lint t))
-
-  (defun rhb/deno-project-p ()
-    (or (locate-dominating-file default-directory "deno.json")
-        (locate-dominating-file default-directory "deno.jsonc")))
-
-  (define-minor-mode deno-project-mode
-    "Minor mode for Deno projects."
-    :lighter " Deno"
-    (when deno-project-mode
-      (setq-local devdocs-current-doc '("deno~2" "typescript"))
-      (setq-local eglot-server-programs
-                  (list (cons '(js-ts-mode typescript-ts-mode) '(eglot-deno "deno" "lsp"))))))
-
-  (define-minor-mode node-project-mode
-    "Minor mode for Node projects."
-    :lighter " Node"
-    (when node-project-mode
-      (setq-local devdocs-current-doc '("node" "typescript"))))
-
-  (defun rhb/setup-ts-project ()
-    (cond
-     ((rhb/deno-project-p)
-      (deno-project-mode 1))
-     (t
-      (node-project-mode 1)))))
+(use-package devdocs
+  :hook ((js-ts-mode typescript-ts-mode tsx-ts-mode)
+         . (lambda ()
+             (setq-local devdocs-current-docs '("node" "typescript")))))
 
 (use-package js-ts-mode
   :straight nil
@@ -40,20 +22,15 @@
   :mode (("\\.js\\'" . js-ts-mode)
          ("\\.jsx\\'" . js-ts-mode))
 
-  :hook ((js-ts-mode . rhb/setup-ts-project)
-         (js-ts-mode . eglot-ensure))
-
-  :config
-  (setf (alist-get 'deno-project-mode apheleia-formatters nil nil t) '(denofmt-js)))
+  :hook (js-ts-mode . eglot-ensure))
 
 (use-package typescript-ts-mode
   :after eglot
 
   :mode (("\\.ts\\'" . typescript-ts-mode)
-         ("\\.tsx\\'" . typescript-ts-mode))
+         ("\\.tsx\\'" . tsx-ts-mode))
 
-  :hook ((typescript-ts-mode . rhb/setup-ts-project)
-         (typescript-ts-mode . eglot-ensure)))
+  :hook ((typescript-ts-mode tsx-ts-mode) . eglot-ensure))
 
 (use-package emacs
   :ensure t
