@@ -57,4 +57,4 @@
              :type git
              :host github
              :repo "dakra/rexel")
-  :bind-keymap ("C-c C-r" . rexel-prefix-map))
+  :bind-keymap ("C-c r" . rexel-prefix-map))

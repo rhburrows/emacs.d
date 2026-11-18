@@ -103,6 +103,41 @@ are defining or executing a macro."
   :config
   (global-devil-mode t)
 
+  (defvar rhb/devil-which-key-keys nil
+    "Emacs key sequence for the Devil keys read so far, or nil.")
+
+  (defun rhb/devil-which-key-record (format-string &optional key)
+    "Record the translated Devil KEY each time Devil prompts for a key.
+
+Devil's recursive key reader is native compiled and bypasses advice, so
+this hooks the prompt formatting instead, which runs once per key read."
+    (when (member format-string (list devil-prompt devil-describe-prompt))
+      (setq rhb/devil-which-key-keys
+            (ignore-errors (kbd (devil--translate key))))))
+
+  (defun rhb/devil-which-key-this-command-keys ()
+    "Return the pending Devil keys, falling back to the real command keys."
+    (if (> (length rhb/devil-which-key-keys) 0)
+        rhb/devil-which-key-keys
+      (this-single-command-keys)))
+
+  (defun rhb/devil-which-key-active-p ()
+    "Return non-nil while Devil is reading keys so which-key may display."
+    (> (length rhb/devil-which-key-keys) 0))
+
+  (defun rhb/devil-which-key-cleanup (fn &rest args)
+    "Run FN with ARGS, then clear the recorded keys and hide which-key."
+    (unwind-protect (apply fn args)
+      (setq rhb/devil-which-key-keys nil)
+      (which-key--hide-popup)))
+
+  (setq which-key-this-command-keys-function
+        #'rhb/devil-which-key-this-command-keys)
+  (add-hook 'which-key-inhibit-display-hook #'rhb/devil-which-key-active-p)
+  (advice-add 'devil-format :before #'rhb/devil-which-key-record)
+  (advice-add 'devil :around #'rhb/devil-which-key-cleanup)
+  (advice-add 'devil-describe-key :around #'rhb/devil-which-key-cleanup)
+
   :custom
   (devil-prompt "\U0001F608 %t"))
 
