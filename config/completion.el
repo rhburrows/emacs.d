@@ -23,7 +23,7 @@
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-default nil)
+  (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion))))
   (completion-pcm-leading-wildcard t))
 
@@ -40,10 +40,7 @@
   :bind
   (("C-." . embark-act)
    ("C-;" . embark-dwim)
-   ("C-h B" . embark-bindings))
-
-  :custom
-  (prefix-help-command #'embark-prefix-help-command))
+   ("C-h B" . embark-bindings)))
 
 (use-package embark-consult
   :hook

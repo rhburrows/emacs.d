@@ -110,8 +110,7 @@ are defining or executing a macro."
   :straight (:type built-in)
 
   :custom
-  (ispell-program-name "hunspell")
-  (ispell-really-hunspell t))
+  (ispell-program-name "hunspell"))
 
 (use-package flyspell-correct
   :after flyspell

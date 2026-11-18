@@ -83,7 +83,6 @@
 
 (use-package pulsar
   :custom
-  (pulsar-pulse t)
   (pulsar-delay 0.04)
   (pulsar-face 'pulsar-cyan)
 

@@ -10,7 +10,7 @@
   :hook (go-ts-mode . eglot-ensure)
 
   :custom
-  (go-ts-mode-indent-offset 2)
+  (go-ts-indent-offset 2)
 
   :config
   (add-to-list 'consult-imenu-config

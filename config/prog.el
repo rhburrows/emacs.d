@@ -37,13 +37,15 @@
   (prog-mode . flyspell-prog-mode))
 
 (use-package eglot
+  :config
+  (setq eglot-max-file-watches 3000
+        jsonrpc-event-hook nil)
+  
   :custom
   (eglot-events-buffer-config '(:size 0 :format short))
-  (jsonrpc-event-hook nil) ;; Remove if debugging
   (eglot-report-progress nil)
   (eglot-autoshutdown t)
   (eglot-sync-connect 0)
-  (eglot-max-file-watches 3000)
 
   :bind
   ((:map eglot-mode-map
