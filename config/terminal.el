@@ -51,3 +51,10 @@
   :straight nil
   :after ghostel
   :hook (after-init . ghostel-compile-global-mode))
+
+(use-package rexel
+  :straight (rexel
+             :type git
+             :host github
+             :repo "dakra/rexel")
+  :bind-keymap ("C-c C-r" . rexel-prefix-map))
