@@ -57,4 +57,7 @@
              :type git
              :host github
              :repo "dakra/rexel")
-  :bind-keymap ("C-c r" . rexel-prefix-map))
+  :demand t
+  :config
+  ;; Don't use :bind-keymap because lazy loading will make it not work the first time
+  (keymap-set global-map "C-c r" rexel-prefix-map))
